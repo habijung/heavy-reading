@@ -3,6 +3,36 @@
     margin: 0 auto;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 .header h1 {
     font-size: 30px;
+    display: inline-block;
+}
+
+form {
+    display: inline-block;
+    margin-left: 30%;
+}
+
+.content {
+    position: relative;
+    top: 50px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+#booklist {
+    float: left;
+    margin: 1% 1% 1% 0%;
+    cursor: pointer;
+}
+
+.content .subtitle {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 6%;
 }

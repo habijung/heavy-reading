@@ -1,11 +1,27 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>진중한 독서</title>
 </head>
 <body>
+    <div class="header">
+        <h1><a href="{% url 'main' %}">진중한 독서</a></h1>
+        <form action="{% url 'search' %}" method="POST">
+            <input type="text" name="q" value="{{q}}">
+            <input type="submit">
+        </form>
+    </div>
     
+    <div class="content">
+        <img src="{{ book.cover_thumbnail.url }}" alt="cover">
+        <p class="subtitle">책 소개</p>
+        <p>{{book.body}}</p>
+        <p class="subtitle">저자</p>
+        <p>{{book.author}}</p>
+    </div>
 </body>
 </html>
