@@ -1,0 +1,6 @@
+{% for book in books %}
+<div id="booklist" OnClick="location.href='{% url 'detail' book.id %}'">
+    <img src="{{ book.cover_thumbnail.url }}" alt="cover">
+    <p>{{book.title}}</p>
+</div>
+{% endfor %}

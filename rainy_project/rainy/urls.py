@@ -24,4 +24,5 @@ urlpatterns = [
     path('', mainpage.views.main, name='main'),
     path('detail/<int:book_id>', mainpage.views.detail, name='detail'),
     path('search/', mainpage.views.search, name='search'),
+    path('main/ajax', mainpage.views.main_ajax, name='main_ajax'),
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
