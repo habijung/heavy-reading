@@ -18,11 +18,18 @@
     
     <div class="content">
         <img src="{{ book.cover_thumbnail.url }}" alt="cover">
-        <button><a href="{% url 'create_report' book.id %}">독후감 작성</a></button>
-        <p class="subtitle">책 소개</p>
-        <p>{{book.body}}</p>
-        <p class="subtitle">저자</p>
-        <p>{{book.author}}</p>
+
     </div>
+    <div class="content">
+        <form id="report" method="POST" action="{% url 'create' book.id %}">
+            {% csrf_token %}
+            <input type="text" name="title">
+            <br><br>
+            <textarea name="text" cols="70" rows="40"></textarea>
+            <br>
+            <input type="submit" value="작성하기">
+        </form>
+    </div>
+
 </body>
 </html>

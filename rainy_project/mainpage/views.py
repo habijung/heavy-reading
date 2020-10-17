@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Book
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Book, Report
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.utils import timezone
 
 # Create your views here.
 def main(request):
@@ -47,3 +48,17 @@ def search(request):
 
     else:
         return render(request, 'search.html')
+
+def create_report(request, book_id):
+    book = get_object_or_404(Book, pk=book_id)
+    return render(request, 'create_report.html', {'book':book})
+
+def create(request, book_id):
+    book = get_object_or_404(Book, pk=book_id)
+    report = Report()
+    report.title = request.POST['title']
+    report.text = request.POST['text']
+    report.pub_date = timezone.datetime.now()
+    report.book = book
+    report.save()
+    return redirect('/detail/' + str(book_id))

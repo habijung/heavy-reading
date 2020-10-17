@@ -23,5 +23,9 @@ class Book(models.Model):
 
 class Report(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    title = models.CharField(default='', max_length=200)
     text = models.TextField()
     pub_date = models.DateTimeField('date published')
+
+    def __str__(self):
+        return self.title
