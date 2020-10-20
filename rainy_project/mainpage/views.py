@@ -1,11 +1,18 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Book, Report
+from .models import Book, Report, Rating
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.utils import timezone
+from decimal import Decimal
 
-# Create your views here.
 def main(request):
-    books = Book.objects.all().order_by('-pub_date')
+    sort = request.GET.get('sort','')
+
+    if sort == 'reverse' :
+        books = Book.objects.all().order_by('pub_date')
+    elif sort == 'grade' :
+        books = Book.objects.order_by('-grade', '-count', '-pub_date')
+    else :
+        books = Book.objects.all().order_by('-pub_date')
     paginator = Paginator(books, 12)
     page = request.POST.get('page')
 
@@ -19,7 +26,15 @@ def main(request):
     return render(request, 'main.html', {'books': books})
 
 def main_ajax(request):
-    books = Book.objects.all().order_by('-pub_date')
+    sort = request.GET.get('sort','')
+
+    if sort == 'reverse' :
+        books = Book.objects.all().order_by('pub_date')
+    elif sort == 'grade' :
+        books = Book.objects.order_by('-grade', '-count', '-pub_date')
+    else :
+        books = Book.objects.all().order_by('-pub_date')
+
     paginator = Paginator(books, 12)
     page = request.POST.get('page')
 
@@ -56,9 +71,33 @@ def create_report(request, book_id):
 def create(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
     report = Report()
+
     report.title = request.POST['title']
     report.text = request.POST['text']
     report.pub_date = timezone.datetime.now()
     report.book = book
     report.save()
+
+    return redirect('/detail/' + str(book_id))
+
+def rating(request, book_id):
+    book = get_object_or_404(Book, pk=book_id)
+    rating = Rating()
+    rating.grade = request.POST['vote']
+    rating.pub_date = timezone.datetime.now()
+    rating.book = book
+    rating.save()
+
+    if book.count == 0 :
+        book.grade = rating.grade
+        book.count = 1
+    else :
+        temp = book.count / (book.count + 1)
+        book.count = book.count + 1
+        book.grade = book.grade * Decimal(temp)
+        temp = int(rating.grade) / book.count
+        book.grade = book.grade + Decimal(temp)
+        
+    book.save()
+
     return redirect('/detail/' + str(book_id))

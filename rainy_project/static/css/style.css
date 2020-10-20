@@ -31,6 +31,18 @@ form {
     cursor: pointer;
 }
 
+#booklist p{
+    margin: 0%;
+}
+
+#book>img{
+    margin-bottom: 1%;
+}
+
+#book p{
+    margin: 0%;
+}
+
 .content .subtitle {
     font-weight: bold;
     font-size: 20px;
@@ -41,4 +53,13 @@ form {
     margin: 0;
     padding-top: 5%;
     padding-bottom: 5%;
+}
+
+.ratings {
+    float: left;
+    margin-right: 0.5%;
+}
+
+.container p {
+    vertical-align: middle;
 }

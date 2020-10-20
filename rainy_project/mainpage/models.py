@@ -13,7 +13,7 @@ class Book(models.Model):
         options = {'quality' : 60}
     )
     pub_date = models.DateTimeField('date published')
-    value = models.DecimalField(max_digits=2, decimal_places=1, default=0)
+    grade = models.DecimalField(max_digits=2, decimal_places=1, default=0)
     body = models.TextField()
     author = models.CharField(max_length=50)
     count = models.SmallIntegerField(default=0)
@@ -29,3 +29,11 @@ class Report(models.Model):
 
     def __str__(self):
         return self.title
+
+class Rating(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    grade = models.SmallIntegerField(default=0)
+    pub_date = models.DateTimeField('date published')
+
+    def __str__(self):
+        return self.book.title

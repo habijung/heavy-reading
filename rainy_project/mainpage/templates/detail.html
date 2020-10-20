@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/rating.css' %}">
     <title>진중한 독서</title>
 </head>
 <body>
@@ -17,12 +18,39 @@
     </div>
     
     <div class="content">
-        <img src="{{ book.cover_thumbnail.url }}" alt="cover">
+        <div id="book">
+            <img src="{{ book.cover_thumbnail.url }}" alt="cover">
+            <p> {{book.title}} </p>
+
+        </div>
+        <div class="container" style="margin-top: 35px;">
+            <div class="ratings">
+                <input type="radio" name="star" id="rating" value="1">
+                <input type="radio" name="star" id="rating" value="2">
+                <input type="radio" name="star" id="rating" value="3">
+                <input type="radio" name="star" id="rating" value="4">
+                <input type="radio" name="star" id="rating" value="5">
+            </div>
+            <p>({{book.grade}})</p>
+            <span class="info"></span>
+        </div>
         <button><a href="{% url 'create_report' book.id %}">독후감 작성</a></button>
         <p class="subtitle">책 소개</p>
         <p>{{book.body}}</p>
         <p class="subtitle">저자</p>
         <p>{{book.author}}</p>
     </div>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/rating.js' %}"></script>
+    <script>
+        $('.ratings').rating(function(vote, event) {
+            $.ajax({
+                method: 'POST',
+                url: "{% url 'rating' book.id %}",
+                data: {vote:vote},
+            })
+        })
+    </script>
 </body>
 </html>

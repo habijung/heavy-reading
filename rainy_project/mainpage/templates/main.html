@@ -30,13 +30,19 @@
             <input type="text" name="q" value="{{q}}">
             <input type="submit">
         </form>
+        <select id="sort" onchange="location = this.value;">
+            <option class="date" value="/">최신순</option>
+            <option class="reverse" value="?sort=reverse">오래된순</option>
+            <option class="grade" value="?sort=grade">평점순</option>
+        </select>
     </div>
     
     <div class="content">
         {% for book in books %}
             <div id="booklist" OnClick="location.href='{% url 'detail' book.id %}'">
                 <img src="{{ book.cover_thumbnail.url }}" alt="cover">
-                <p>{{book.title}}</p>
+                <p> {{book.title}} </p>
+                <p> <img src="{% static 'img/star_icon.png' %}" alt="star_icon" width="16px" height="16px"> {{book.grade}} ({{book.count}}명) </p>
             </div>
         {% endfor %}
         <div id="booklist_ajax"></div>
@@ -72,11 +78,49 @@
             },
             success: addMorePostAjax,
             dataType: 'html',
+        },
+        {
+            type: 'GET',
+            url: "{% url 'main_ajax' %}",
+            data: {
+                'sort': $("#sort").val(),
+                'csrfmiddlewaretoken': token,
+            },
+            success: addMorePostAjax,
         });
     }
 
     function addMorePostAjax(data, textStatus, jqXHR) {
         $('#booklist_ajax').append(data);
     }
+
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
+
+    $(document).ready(function(){
+        var sort = getUrlParameter('sort');
+        
+        if(sort == 'reverse') {
+            $('.reverse').prop('selected', 'selected')
+        }
+        else if(sort == 'grade') {
+            $('.grade').prop('selected', 'selected')
+        }
+        else {
+            $('.date').prop('selected', 'selected')
+        }
+    });
 </script>
 </html>
