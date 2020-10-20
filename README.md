@@ -1,18 +1,43 @@
-# Visual Studio Codespaces
+아래의 샘플 양식은 필수입니다. 설명이 부족하거나 추가하고싶은 부분이 있으면 개발자님이 추가해서 작성해주세요! 동영상, 이미지, 텍스트 전부 자유입니다.
 
-Welcome to Visual Studio Codespaces! This environment provides you with a full-fidelity development experience, that is accessible from anywhere. It's the same Visual Studio Code experience you already know and love, only powered by the cloud 💙 ☁️
+https://github.com/osam2019 2019프로젝트, readme.md를 참고하여 개발자님의 새로운 프로젝트를 만들어주세요!
 
-Clone a repo, edit some code, [spin up a terminal](https://docs.microsoft.com/en-us/visualstudio/online/how-to/vscode#using-the-integrated-terminal) and then [start debugging](https://docs.microsoft.com/en-us/visualstudio/online/how-to/vscode#port-forwarding). When you're done working, we'll automatically suspend the environment, so you only pay for the time you actually use it (down to the second!) 👍
+Smaple Logo
+Logo
 
-If you're working on multiple projects, then go ahead and create multiple environments. You can quickly switch between them, knowing that each one has its own dedicated resources. Additionally, feel free to spin up environments for ad-hoc tasks such as reviewing a PR or doing some pair programming with a colleague. With Visual Studio Codespaces, you can eradicate setup from all of your everyday tasks 🔥 🙌
+팀명 텍스트 및 팀명 로고 이미지 (택1)
 
-## Helpful Resources
+팀소개 및 프로잭트 설명 동영상
+Watch the video
 
-* [What is Visual Studio Codespaces?](https://docs.microsoft.com/en-us/visualstudio/online/overview/what-is-vsonline)
-* [How-to Guide: VS Code](https://docs.microsoft.com/en-us/visualstudio/online/how-to/vscode#install)
-* [How-to Guide: Browser](https://docs.microsoft.com/en-us/visualstudio/online/how-to/browser#create-an-environment)
-* [Environment configuration](https://docs.microsoft.com/en-us/visualstudio/online/reference/configuring)
-* [Environment personalization](https://docs.microsoft.com/en-us/visualstudio/online/reference/personalizing)
+기능 설계
+발사믹, 카카오 오븐 등 본인이 편한 목업 프레임워크를 이용하여 제작 후 링크
+수기로 작성시 찍어서 올려주세요
+컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
+ECMAScript 6 지원 브라우저 사용
+권장: Google Chrome 버젼 77 이상
+기술 스택 (Technique Used) (예시)
+Server(back-end)
+nodejs, php, java 등 서버 언어 버전
+express, laravel, sptring boot 등 사용한 프레임워크
+DB 등 사용한 다른 프로그램
+front-end
+react.js, vue.js 등 사용한 front-end 프레임워크
+UI framework
+기타 사용한 라이브러리
+설치 안내 (Installation Process)
+$ git clone git주소
+$ yarn or npm install
+$ yarn start or npm run start
+프로젝트 사용법 (Getting Started)
+마크다운 문법을 이용하여 자유롭게 기재
 
-If you run into any problems, see our [troubleshooting documentation](https://docs.microsoft.com/en-us/visualstudio/online/resources/troubleshooting) for potential workarounds. Additionally, if you have any questions and/or feedback, please don't hesitate to reach out to the team on [GitHub](https://github.com/MicrosoftDocs/vscodespaces).
+잘 모를 경우 구글 검색 - 마크다운 문법 https://post.naver.com/viewer/postView.nhn?volumeNo=24627214&memberNo=42458017
 
+편한 마크다운 에디터를 찾아서 사용 샘플 에디터 https://stackedit.io/app#
+
+팀 정보 (Team Information)
+hong gil dong (hong999@gmail.com), Github Id: gildong999
+kim su ji (suji999@gmail.com), Github Id: suji999
+저작권 및 사용권 정보 (Copyleft / End User License)
+MIT
