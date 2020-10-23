@@ -1,23 +1,37 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
+from .models import Profile
 
 # Blank page
 def index(request):
     msg = "accounts page."
-    return render(request, 'index.html', {'message': msg})
+    return render(request, 'accounts/index.html', {'message': msg})
 
 # Sign Up
 def signup(request):
-    # Make new User if POST request
     if request.method == 'POST':
         if request.POST['password'] == request.POST['confirm']:
-            user = User.objects.create_user(username=request.POST['username'],password=request.POST['password'])
+            cardname = request.POST['cardname'] + '@narasarang.or.kr'
+            affiliation = request.POST['affiliation']
+
+            user = User.objects.create_user(
+                username=request.POST['username'],
+                password=request.POST['password'],
+                first_name=request.POST['first_name'],
+                last_name=request.POST['last_name'],
+                email=cardname
+            )
+            
+            profile = Profile(user=user, affiliation=affiliation)
+            profile.save()
+            
             auth.login(request, user)
             return redirect('/')
     
-    # Else GET request, show sign-up page
-    return render(request, 'signup.html')
+    return render(request, 'accounts/signup.html')
+
+
 
 # Log-in
 def login(request):
@@ -34,11 +48,11 @@ def login(request):
             return redirect('/')
 
         else:
-            return render(request, 'login.html', {'error' : 'username or password is incorrect.'})
+            return render(request, 'accounts/login.html', {'error' : 'username or password is incorrect.'})
         
     # Else GET request, show log-in page
     else:
-        return render(request, 'login.html')
+        return render(request, 'accounts/login.html')
 
 # Log-out
 def logout(request):
@@ -48,4 +62,4 @@ def logout(request):
         return redirect('/')
 
     # If GET request, show log-out page
-    return render(request, 'login.html')
+    return render(request, 'accounts/login.html')
