@@ -3,6 +3,7 @@ from .models import Book, Report, Rating, Memo
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.utils import timezone
 from decimal import Decimal
+from django.views.decorators.csrf import csrf_exempt
 
 def main(request):
     sort = request.GET.get('sort','')
@@ -25,6 +26,7 @@ def main(request):
 
     return render(request, 'main.html', {'books': books})
 
+@csrf_exempt
 def main_ajax(request):
     sort = request.GET.get('sort','')
 
@@ -97,7 +99,7 @@ def create_memo(request, book_id):
 
     return redirect('/detail/' + str(book_id))
 
-
+@csrf_exempt
 def rating(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
     rating = Rating()

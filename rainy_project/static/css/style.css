@@ -1,3 +1,7 @@
+/* font import */
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+
+/* common part */
 .header {
     width: 70%;
     margin: 0 auto;
@@ -9,16 +13,44 @@ a {
     color: black;
 }
 
-.header h1 {
-    font-size: 30px;
-    display: inline-block;
+
+/* header part */
+h1 {
+    font-size: 50px;
+    font-family: 'Gugi', cursive;
+    display: block;
+    text-align: center;
 }
 
-form {
+#searching-form {
+    width: 300px;
+    margin-right: 10px;
     display: inline-block;
-    margin-left: 30%;
+}
+.searching-bar {
+    display: inline-block;
+    margin-left: 3%;
 }
 
+#sort {
+    display: inline-block;
+    margin-left: 5%;
+}
+
+.header-searching {
+    width: 500px;
+    display: inline-block;
+    text-align: left;
+}
+
+#login-box {
+    width: 20%;
+    display: inline-block;
+    text-align: right;
+}
+
+
+/* content part */
 .content {
     position: relative;
     top: 50px;

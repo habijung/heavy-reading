@@ -24,8 +24,23 @@
     <script src="{% static 'js/jquery.min.js' %}"></script>
 </head>
 <body>
-    <div class="user_nav">
-        <div id="login_box">
+    <div class="header">
+        <h1><a href="{% url 'main' %}">진중한 독서</a></h1>
+
+        <div class="header-searching">
+            <form id="searching-form" action="{% url 'search' %}" method="POST">
+                {% csrf_token %}
+                <input class="searching-bar" type="text" name="q" value="{{q}}">
+                <input class="searching-bar" type="submit">
+            </form>
+            <select id="sort" onchange="location = this.value;">
+                <option class="date" value="/">최신순</option>
+                <option class="reverse" value="?sort=reverse">오래된순</option>
+                <option class="grade" value="?sort=grade">평점순</option>
+            </select>
+        </div>
+
+        <div id="login-box">
             {% if user.is_authenticated %}
                 <p>{{ user.username }}</p>
                 <a href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
@@ -39,19 +54,6 @@
                 <a href="{% url 'login' %}">로그인</a>
             {% endif %}
         </div>
-    </div>
-
-    <div class="header">
-        <h1><a href="{% url 'main' %}">진중한 독서</a></h1>
-        <form action="{% url 'search' %}" method="POST">
-            <input type="text" name="q" value="{{q}}">
-            <input type="submit">
-        </form>
-        <select id="sort" onchange="location = this.value;">
-            <option class="date" value="/">최신순</option>
-            <option class="reverse" value="?sort=reverse">오래된순</option>
-            <option class="grade" value="?sort=grade">평점순</option>
-        </select>
     </div>
 
     <div class="content">

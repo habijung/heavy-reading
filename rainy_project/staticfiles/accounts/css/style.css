@@ -1,0 +1,20 @@
+h1 {
+    color: #9c33ff;
+}
+
+.signup_info {
+    width: 940px;
+    background-color: #707070;
+    padding: 5 0 5 0;
+}
+
+.signup_header {
+    width: 150px;
+    padding: 10px 50px 10px 5px;
+}
+
+.signup_bt {
+    margin-top: 30px;
+    margin-left: 150px;
+    padding: 5px 10px;
+}

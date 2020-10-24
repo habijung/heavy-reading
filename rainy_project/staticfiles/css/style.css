@@ -1,0 +1,73 @@
+.header {
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 1%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.header h1 {
+    font-size: 30px;
+    display: inline-block;
+}
+
+form {
+    display: inline-block;
+    margin-left: 30%;
+}
+
+.content {
+    position: relative;
+    top: 50px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+#booklist {
+    float: left;
+    margin: 1% 1% 1% 0%;
+    cursor: pointer;
+    width: 280px;
+}
+
+#booklist p{
+    margin: 0%;
+}
+
+#book>img{
+    margin-bottom: 1%;
+}
+
+#book p{
+    margin: 0%;
+}
+
+.content .subtitle {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 6%;
+}
+
+#create {
+    margin: 0;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.ratings {
+    float: left;
+    margin-right: 0.5%;
+}
+
+.container p {
+    vertical-align: middle;
+}
+
+@import url(//fonts.googleapis.com/earlyaccess/jejuhallasan.css);
+
+.jh-font {
+    font-family: 'Jeju Hallasan', cursive;
+}
