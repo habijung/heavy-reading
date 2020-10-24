@@ -14,6 +14,9 @@ class ProfileInline(admin.StackedInline):
 class UserAdmin(UserAdmin):  
     inlines = (ProfileInline, )
 
+class ProfileAdmin(admin.ModelAdmin):
+    fields = ['password']
+
 admin.site.unregister(User)  
 admin.site.register(User, UserAdmin)
-admin.site.register(Profile)
+admin.site.register(Profile, ProfileAdmin)
