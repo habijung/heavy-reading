@@ -24,6 +24,23 @@
     <script src="{% static 'js/jquery.min.js' %}"></script>
 </head>
 <body>
+    <div class="user_nav">
+        <div id="login_box">
+            {% if user.is_authenticated %}
+                <p>{{ user.username }}</p>
+                <a href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
+
+                <form id="logout" method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <input type="hidden" />
+                </form>
+            {% else %}
+                <a href="{% url 'signup' %}">회원가입</a>
+                <a href="{% url 'login' %}">로그인</a>
+            {% endif %}
+        </div>
+    </div>
+
     <div class="header">
         <h1><a href="{% url 'main' %}">진중한 독서</a></h1>
         <form action="{% url 'search' %}" method="POST">
@@ -36,7 +53,7 @@
             <option class="grade" value="?sort=grade">평점순</option>
         </select>
     </div>
-    
+
     <div class="content">
         {% for book in books %}
             <div id="booklist" OnClick="location.href='{% url 'detail' book.id %}'">

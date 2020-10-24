@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+
+    <title>회원가입</title>
+</head>
+<body>
+    <h1>Sign Up Page</h1>
+    <div>
+        <form method="POST" action="{% url 'signup' %}">
+            {% csrf_token %}
+            <table id="signup_info">
+                <tr class="signup_row">
+                    <th class="signup_header">* 회원 아이디</th>
+                    <td class="signup_input"><input type="text" name="username"></td>
+                </tr>
+
+                <tr class="signup_row">
+                    <th class="signup_header">* 비밀번호</th>
+                    <td class="signup_input"><input type="password" name="password"></td>
+                </tr>
+
+                <tr class="signup_row">
+                    <th class="signup_header">* 비밀번호 확인</th>
+                    <td class="signup_input"><input type="password" name="confirm"></td>
+                </tr>
+
+                <tr class="signup_row">
+                    <th class="signup_header">* 성</th>
+                    <td class="signup_input"><input type="text" name="first_name"></td>
+                </tr>
+
+                <tr class="signup_row">
+                    <th class="signup_header">* 이름</th>
+                    <td class="signup_input"><input type="text" name="last_name"></td>
+                </tr>
+
+                <tr class="signup_row">
+                    <th class="signup_header">* 나라사랑 아이디</th>
+                    <td class="signup_input"><input type="text" name="cardname"> @narasarang.or.kr</td>
+                </tr>
+
+                <tr class="signup_row">
+                    <th class="signup_header">* 소속</th>
+                    <td class="signup_input">
+                        <select name="affiliation" size="1">
+                            <option value='0'>선택</option>
+                            <option value='1'>육군</option>
+                            <option value='2'>해군</option>
+                            <option value='3'>공군</option>
+                            <option value='4'>해병대</option>
+                            <option value='5'>기타</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+
+            <input class="signup_bt" type="submit" value="회원가입">
+            <input class="signup_bt" type="reset" value="취소">
+        </form>
+    </div>
+</body>
+</html>
