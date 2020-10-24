@@ -38,6 +38,7 @@
         <button><a href="{% url 'create_memo_page' book.id %}">메모하기</a></button>
 
     </div>
+    {% if report == -1 %}
     <div class="content">
         <form id="create" method="POST" action="{% url 'create_report' book.id %}">
             {% csrf_token %}
@@ -48,7 +49,22 @@
             <input type="submit" value="작성하기">
         </form>
     </div>
-
+    {% else %}
+    <div class="content">
+        <form id="create" method="POST" action="{% url 'create_report' book.id %}">
+            {% csrf_token %}
+            제목 : <input type="text" name="title" value={{report.title}}>
+            <br><br>
+            <textarea name="text" cols="70" rows="40">{{report.text}}</textarea>
+            <br>
+            <input type="submit" value="작성하기">
+        </form>
+        <form action="{% url 'report_del' report.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="삭제">
+        </form>
+    </div>
+    {% endif %}
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/rating.js' %}"></script>
     <script>

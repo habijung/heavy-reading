@@ -1,6 +1,7 @@
 from django.db import models
 from imagekit.models import ImageSpecField
 from imagekit.processors import Thumbnail
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Book(models.Model):
@@ -23,6 +24,7 @@ class Book(models.Model):
 
 class Report(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(default='', max_length=200)
     text = models.TextField()
     pub_date = models.DateTimeField('date published')
@@ -33,6 +35,7 @@ class Report(models.Model):
 
 class Rating(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     grade = models.SmallIntegerField(default=0)
     pub_date = models.DateTimeField('date published')
 
@@ -41,6 +44,10 @@ class Rating(models.Model):
 
 class Memo(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     page = models.SmallIntegerField(default=0)
     phrase = models.TextField(max_length=255)
     pub_date = models.DateTimeField('date published')
+
+    def __str__(self):
+        return self.book.title + '_' + self.user.username + str(self.page)

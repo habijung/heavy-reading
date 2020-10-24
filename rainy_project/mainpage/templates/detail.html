@@ -23,19 +23,21 @@
             <p> {{book.title}} </p>
 
         </div>
-        <div class="container" style="margin-top: 35px;">
-            <div class="ratings">
-                <input type="radio" name="star" id="rating" value="1">
-                <input type="radio" name="star" id="rating" value="2">
-                <input type="radio" name="star" id="rating" value="3">
-                <input type="radio" name="star" id="rating" value="4">
-                <input type="radio" name="star" id="rating" value="5">
+        {% if user.is_authenticated %}
+            <div class="container" style="margin-top: 35px;">
+                <div class="ratings">
+                    <input type="radio" name="star" id="rating" value="1">
+                    <input type="radio" name="star" id="rating" value="2">
+                    <input type="radio" name="star" id="rating" value="3">
+                    <input type="radio" name="star" id="rating" value="4">
+                    <input type="radio" name="star" id="rating" value="5">
+                </div>
+                <p>({{book.grade}})</p>
+                <span class="info"></span>
             </div>
-            <p>({{book.grade}})</p>
-            <span class="info"></span>
-        </div>
-        <button><a href="{% url 'create_report_page' book.id %}">독후감 작성</a></button>
-        <button><a href="{% url 'create_memo_page' book.id %}">메모하기</a></button>
+            <button><a href="{% url 'create_report_page' book.id %}">독후감 작성</a></button>
+            <button><a href="{% url 'create_memo_page' book.id %}">메모하기</a></button>
+        {% endif %}
         <p class="subtitle">책 소개</p>
         <p>{{book.body}}</p>
         <p class="subtitle">저자</p>

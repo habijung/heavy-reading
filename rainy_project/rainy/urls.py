@@ -31,5 +31,6 @@ urlpatterns = [
     path('create_report/<int:book_id>', mainpage.views.create_report, name='create_report'),
     path('create_memo/<int:book_id>', mainpage.views.create_memo, name='create_memo'),
     path('rating/<int:book_id>', mainpage.views.rating, name='rating'),
+    path('report/del/<int:report_id>', mainpage.views.report_del, name='report_del'),
     path('accounts/', include('accounts.urls')),
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
