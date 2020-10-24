@@ -34,7 +34,8 @@
             <p>({{book.grade}})</p>
             <span class="info"></span>
         </div>
-        <button><a href="{% url 'create_report' book.id %}">독후감 작성</a></button>
+        <button><a href="{% url 'create_report_page' book.id %}">독후감 작성</a></button>
+        <button><a href="{% url 'create_memo_page' book.id %}">메모하기</a></button>
         <p class="subtitle">책 소개</p>
         <p>{{book.body}}</p>
         <p class="subtitle">저자</p>

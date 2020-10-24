@@ -25,7 +25,9 @@ urlpatterns = [
     path('detail/<int:book_id>', mainpage.views.detail, name='detail'),
     path('search/', mainpage.views.search, name='search'),
     path('main/ajax', mainpage.views.main_ajax, name='main_ajax'),
+    path('create_report_page/<int:book_id>', mainpage.views.create_report_page, name='create_report_page'),
+    path('create_memo_page/<int:book_id>', mainpage.views.create_memo_page, name='create_memo_page'),
     path('create_report/<int:book_id>', mainpage.views.create_report, name='create_report'),
-    path('create/<int:book_id>', mainpage.views.create, name='create'),
+    path('create_memo/<int:book_id>', mainpage.views.create_memo, name='create_memo'),
     path('rating/<int:book_id>', mainpage.views.rating, name='rating'),
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

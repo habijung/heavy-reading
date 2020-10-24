@@ -8,7 +8,7 @@ class Book(models.Model):
     cover = models.ImageField(upload_to='images/')
     cover_thumbnail = ImageSpecField(
         source = 'cover',
-        processors = [Thumbnail(280, 370)],
+        processors = [Thumbnail(240, 300)],
         format = 'JPEG',
         options = {'quality' : 60}
     )
@@ -26,6 +26,7 @@ class Report(models.Model):
     title = models.CharField(default='', max_length=200)
     text = models.TextField()
     pub_date = models.DateTimeField('date published')
+    approved_open = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
@@ -37,3 +38,9 @@ class Rating(models.Model):
 
     def __str__(self):
         return self.book.title
+
+class Memo(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    page = models.SmallIntegerField(default=0)
+    phrase = models.TextField(max_length=255)
+    pub_date = models.DateTimeField('date published')

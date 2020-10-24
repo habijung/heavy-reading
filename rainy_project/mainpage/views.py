@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Book, Report, Rating
+from .models import Book, Report, Rating, Memo
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.utils import timezone
 from decimal import Decimal
@@ -64,11 +64,15 @@ def search(request):
     else:
         return render(request, 'search.html')
 
-def create_report(request, book_id):
+def create_report_page(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
-    return render(request, 'create_report.html', {'book':book})
+    return render(request, 'create_report_page.html', {'book':book})
 
-def create(request, book_id):
+def create_memo_page(request, book_id):
+    book = get_object_or_404(Book, pk=book_id)
+    return render(request, 'create_memo_page.html', {'book':book})
+
+def create_report(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
     report = Report()
 
@@ -76,9 +80,23 @@ def create(request, book_id):
     report.text = request.POST['text']
     report.pub_date = timezone.datetime.now()
     report.book = book
+
     report.save()
 
     return redirect('/detail/' + str(book_id))
+
+def create_memo(request, book_id):
+    book = get_object_or_404(Book, pk=book_id)
+    memo = Memo()
+
+    memo.book = book
+    memo.page = request.POST['page']
+    memo.phrase = request.POST['text']
+    memo.pub_date = timezone.datetime.now()
+    memo.save()
+
+    return redirect('/detail/' + str(book_id))
+
 
 def rating(request, book_id):
     book = get_object_or_404(Book, pk=book_id)

@@ -1,6 +1,7 @@
 .header {
     width: 70%;
     margin: 0 auto;
+    margin-bottom: 1%;
 }
 
 a {
@@ -29,6 +30,7 @@ form {
     float: left;
     margin: 1% 1% 1% 0%;
     cursor: pointer;
+    width: 280px;
 }
 
 #booklist p{
@@ -49,7 +51,7 @@ form {
     margin-top: 6%;
 }
 
-#report {
+#create {
     margin: 0;
     padding-top: 5%;
     padding-bottom: 5%;

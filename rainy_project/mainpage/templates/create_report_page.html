@@ -1,0 +1,64 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/rating.css' %}">
+    <title>진중한 독서</title>
+</head>
+<body>
+    <div class="header">
+        <h1><a href="{% url 'main' %}">진중한 독서</a></h1>
+        <form action="{% url 'search' %}" method="POST">
+            <input type="text" name="q" value="{{q}}">
+            <input type="submit">
+        </form>
+    </div>
+    
+    <div class="content">
+        <div id="book">
+            <img src="{{ book.cover_thumbnail.url }}" alt="cover">
+            <p> {{book.title}} </p>
+
+        </div>
+        <div class="container" style="margin-top: 35px;">
+            <div class="ratings">
+                <input type="radio" name="star" id="rating" value="1">
+                <input type="radio" name="star" id="rating" value="2">
+                <input type="radio" name="star" id="rating" value="3">
+                <input type="radio" name="star" id="rating" value="4">
+                <input type="radio" name="star" id="rating" value="5">
+            </div>
+            <p>({{book.grade}})</p>
+            <span class="info"></span>
+        </div>
+        <button><a href="{% url 'create_report_page' book.id %}">독후감 작성</a></button>
+        <button><a href="{% url 'create_memo_page' book.id %}">메모하기</a></button>
+
+    </div>
+    <div class="content">
+        <form id="create" method="POST" action="{% url 'create_report' book.id %}">
+            {% csrf_token %}
+            제목 : <input type="text" name="title">
+            <br><br>
+            <textarea name="text" cols="70" rows="40"></textarea>
+            <br>
+            <input type="submit" value="작성하기">
+        </form>
+    </div>
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/rating.js' %}"></script>
+    <script>
+        $('.ratings').rating(function(vote, event) {
+            $.ajax({
+                method: 'POST',
+                url: "{% url 'rating' book.id %}",
+                data: {vote:vote},
+            })
+        })
+    </script>
+</body>
+</html>
