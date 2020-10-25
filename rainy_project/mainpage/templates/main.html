@@ -31,7 +31,7 @@
                 <a class="user-login-box" href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
                 <form id="logout" method="POST" action="{% url 'logout' %}">
                     {% csrf_token %}
-                    <input type="hidden"/>
+                    <input type="hidden">
                 </form>
             {% else %}
                 <a class="user-login-box" href="{% url 'signup' %}">회원가입</a>
