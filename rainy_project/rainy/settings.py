@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mainpage.apps.MainpageConfig',
     'accounts.apps.AccountsConfig',
+    'mypage.apps.MypageConfig',
     'imagekit',
 ]
 

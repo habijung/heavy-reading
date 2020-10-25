@@ -54,6 +54,7 @@ def detail(request, book_id):
     book_info = get_object_or_404(Book, pk=book_id)
     return render(request, 'detail.html', {'book':book_info})
 
+@csrf_exempt
 def search(request):
     books = Book.objects.all()
 
