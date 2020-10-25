@@ -25,34 +25,36 @@
 </head>
 <body>
     <div class="header">
+        <div class="header-login">
+            {% if user.is_authenticated %}
+                <a class="user-login-box">{{ user.username }} 님, 안녕하세요!</a>
+                <a class="user-login-box" href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
+                <form id="logout" method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <input type="hidden"/>
+                </form>
+            {% else %}
+                <a class="user-login-box" href="{% url 'signup' %}">회원가입</a>
+                <a class="user-login-box" href="{% url 'login' %}">로그인</a>
+            {% endif %}
+        </div>
+
         <h1><a href="{% url 'main' %}">진중한 독서</a></h1>
 
         <div class="header-searching">
             <form id="searching-form" action="{% url 'search' %}" method="POST">
                 {% csrf_token %}
                 <input class="searching-bar" type="text" name="q" value="{{q}}">
-                <input class="searching-bar" type="submit">
+                <input class="searching-bt" type="submit">
             </form>
+        </div>
+
+        <div class="header-sorting">
             <select id="sort" onchange="location = this.value;">
                 <option class="date" value="/">최신순</option>
                 <option class="reverse" value="?sort=reverse">오래된순</option>
                 <option class="grade" value="?sort=grade">평점순</option>
             </select>
-        </div>
-
-        <div id="login-box">
-            {% if user.is_authenticated %}
-                <p>{{ user.username }}</p>
-                <a href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
-
-                <form id="logout" method="POST" action="{% url 'logout' %}">
-                    {% csrf_token %}
-                    <input type="hidden" />
-                </form>
-            {% else %}
-                <a href="{% url 'signup' %}">회원가입</a>
-                <a href="{% url 'login' %}">로그인</a>
-            {% endif %}
         </div>
     </div>
 
