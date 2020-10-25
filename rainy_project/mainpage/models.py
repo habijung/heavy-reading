@@ -45,7 +45,7 @@ class Rating(models.Model):
 class Memo(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    page = models.SmallIntegerField(default=0)
+    page = models.SmallIntegerField(default=None, null=True)
     phrase = models.TextField(max_length=255)
     pub_date = models.DateTimeField('date published')
 

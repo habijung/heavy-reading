@@ -58,10 +58,7 @@
     <div class="content">
         <form id="create" method="POST" action="{% url 'create_memo' book.id %}">
             {% csrf_token %}
-            page : <input type="text" name="page">
-            <br><br>
-            <textarea name="text" cols="70" rows="4"></textarea>
-            <br>
+            {{form.as_p}}
             <input type="submit" value="작성하기">
         </form>
     </div>

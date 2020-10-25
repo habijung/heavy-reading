@@ -63,6 +63,7 @@
             <br><br>
             <textarea name="text" cols="70" rows="40"></textarea>
             <br>
+            <label><input type="checkbox" name="is_open" value="True">공개 여부</label>
             <input type="submit" value="작성하기">
         </form>
     </div>
@@ -70,10 +71,15 @@
     <div class="content">
         <form id="create" method="POST" action="{% url 'create_report' book.id %}">
             {% csrf_token %}
-            제목 : <input type="text" name="title" value={{report.title}}>
+            제목 : <input type="text" name="title" value="{{report.title}}">
             <br><br>
             <textarea name="text" cols="70" rows="40">{{report.text}}</textarea>
             <br>
+            {% if report.approved_open == True %}
+            <label><input type="checkbox" name="is_open" value="True" checked>공개 여부</label>
+            {% else %}
+            <label><input type="checkbox" name="is_open" value="True">공개 여부</label>
+            {% endif %}
             <input type="submit" value="작성하기">
         </form>
         <form action="{% url 'report_del' report.id %}" method="POST">

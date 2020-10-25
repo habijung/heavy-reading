@@ -4,6 +4,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.utils import timezone
 from decimal import Decimal
 from django.views.decorators.csrf import csrf_exempt
+from .forms import MemoForm
 
 def main(request):
     sort = request.GET.get('sort','')
@@ -77,43 +78,50 @@ def create_report_page(request, book_id):
 
 def create_memo_page(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
-    return render(request, 'create_memo_page.html', {'book':book})
+    form = MemoForm()
+    return render(request, 'create_memo_page.html', {'book':book, 'form':form})
 
 def create_report(request, book_id):
-    book = get_object_or_404(Book, pk=book_id)
-    try:
-        report = Report.objects.get(book=book, user=request.user)
-    except Report.DoesNotExist:
-        report = Report()
+    if request.method == "POST":
+        book = get_object_or_404(Book, pk=book_id)
+        try:
+            report = Report.objects.get(book=book, user=request.user)
+        except Report.DoesNotExist:
+            report = Report()
 
-    report.title = request.POST['title']
-    report.text = request.POST['text']
-    report.pub_date = timezone.datetime.now()
-    report.book = book
-    report.user = request.user
+        report.title = request.POST['title']
+        report.text = request.POST['text']
+        report.pub_date = timezone.datetime.now()
+        report.book = book
+        report.user = request.user
+        if request.POST.get('is_open') == "True":
+            report.approved_open = True
+        else:
+            report.approved_open = False
 
-    report.save()
+        report.save()
 
-    return redirect('/detail/' + str(book_id))
+        return redirect('/detail/' + str(book_id))
 
 def report_del(request, report_id):
-    report_delete = get_object_or_404(Report, pk=report_id)
-    book_id = report_delete.book.id
-    report_delete.delete()
-    return redirect('/detail/' + str(book_id))
+    if request.method == "POST":
+        report_delete = get_object_or_404(Report, pk=report_id)
+        book_id = report_delete.book.id
+        report_delete.delete()
+        return redirect('/detail/' + str(book_id))
 
 def create_memo(request, book_id):
-    book = get_object_or_404(Book, pk=book_id)
-    memo = Memo()
+    if request.method == 'POST':
+        book = get_object_or_404(Book, pk=book_id)
+        form = MemoForm(request.POST, request.FILES)
+        if form.is_valid():
+            memo = Memo(**form.cleaned_data)
+            memo.book = book
+            memo.pub_date = timezone.datetime.now()
+            memo.user = request.user
+            memo.save()
 
-    memo.book = book
-    memo.page = request.POST['page']
-    memo.phrase = request.POST['text']
-    memo.pub_date = timezone.datetime.now()
-    memo.user = request.user
-    memo.save()
-
-    return redirect('/detail/' + str(book_id))
+            return redirect('/detail/' + str(book_id))
 
 @csrf_exempt
 def rating(request, book_id):
