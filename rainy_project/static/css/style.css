@@ -1,44 +1,87 @@
-.header {
-    width: 70%;
-    margin: 0 auto;
-    margin-bottom: 1%;
-}
+/* font import */
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
 
+/* common part */
 a {
     text-decoration: none;
     color: black;
 }
 
-.header h1 {
-    font-size: 30px;
-    display: inline-block;
+
+/* header part */
+.header {
+    width: 70%;
+    padding-top: 10px;
+    margin: 0 auto;
+    margin-bottom: 1%;
 }
 
-form {
-    display: inline-block;
-    margin-left: 30%;
+.header-login {
+    display: block;
+    text-align: right;
 }
 
+.user-login-box {
+    text-align: center;
+    padding-right: 20px;
+}
+
+h1 {
+    font-size: 60px;
+    font-family: 'Gugi', cursive;
+    display: block;
+    text-align: center;
+}
+
+.header-searching {
+    text-align: center;
+}
+
+.searching-bar {
+    height: 25px;
+    width: 200px;
+    margin: 0 15px 15px 30px;
+}
+
+.searching-bt {
+    height: 30px;
+    vertical-align: middle;
+}
+
+.header-sorting {
+    text-align: right;
+    margin-right: 100px;
+}
+
+/* content part */
 .content {
     position: relative;
     top: 50px;
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
+    text-align: center;
 }
 
+/* main.html > booklist part */
 #booklist {
     float: left;
-    margin: 1% 1% 1% 0%;
+    margin: 0 2% 4% 4%;
     cursor: pointer;
     width: 280px;
+    text-align: center;
 }
 
-#booklist p{
-    margin: 0%;
+#booklist > img {
+    margin-bottom: 4%;
 }
 
-#book>img{
-    margin-bottom: 1%;
+#booklist > p {
+    margin-top: 1%;
+}
+
+/* detail.html > book part */
+#book > img{
+    margin-bottom: 2%;
 }
 
 #book p{

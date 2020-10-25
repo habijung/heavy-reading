@@ -3,49 +3,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
-
-    <title>회원가입</title>
+    <title>진중한 독서</title>
 </head>
 <body>
-    <h1>Sign Up Page</h1>
-    <div>
+    <div class="header">
+        <div class="header-login">
+            {% if user.is_authenticated %}
+                <a class="user-login-box">{{ user.username }} 님, 안녕하세요!</a>
+                <a class="user-login-box" href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
+                <form id="logout" method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <input type="hidden">
+                </form>
+            {% else %}
+                <a class="user-login-box" href="{% url 'signup' %}">회원가입</a>
+                <a class="user-login-box" href="{% url 'login' %}">로그인</a>
+            {% endif %}
+        </div>
+
+        <h1><a href="{% url 'main' %}">진중한 독서</a></h1>
+        <h2>회원가입</h2>
+    </div>
+
+    <div class="content">
         <form method="POST" action="{% url 'signup' %}">
             {% csrf_token %}
-            <table id="signup_info">
-                <tr class="signup_row">
-                    <th class="signup_header">* 회원 아이디</th>
-                    <td class="signup_input"><input type="text" name="username"></td>
+            <table id="signup-info">
+                <tr class="signup-row">
+                    <th class="signup-header">* 회원 아이디</th>
+                    <td class="signup-input"><input type="text" name="username"></td>
                 </tr>
 
-                <tr class="signup_row">
-                    <th class="signup_header">* 비밀번호</th>
-                    <td class="signup_input"><input type="password" name="password"></td>
+                <tr class="signup-row">
+                    <th class="signup-header">* 비밀번호</th>
+                    <td class="signup-input"><input type="password" name="password"></td>
                 </tr>
 
-                <tr class="signup_row">
-                    <th class="signup_header">* 비밀번호 확인</th>
-                    <td class="signup_input"><input type="password" name="confirm"></td>
+                <tr class="signup-row">
+                    <th class="signup-header">* 비밀번호 확인</th>
+                    <td class="signup-input"><input type="password" name="confirm"></td>
                 </tr>
 
-                <tr class="signup_row">
-                    <th class="signup_header">* 성</th>
-                    <td class="signup_input"><input type="text" name="first_name"></td>
+                <tr class="signup-row">
+                    <th class="signup-header">* 성</th>
+                    <td class="signup-input"><input type="text" name="first_name"></td>
                 </tr>
 
-                <tr class="signup_row">
-                    <th class="signup_header">* 이름</th>
-                    <td class="signup_input"><input type="text" name="last_name"></td>
+                <tr class="signup-row">
+                    <th class="signup-header">* 이름</th>
+                    <td class="signup-input"><input type="text" name="last_name"></td>
                 </tr>
 
-                <tr class="signup_row">
-                    <th class="signup_header">* 나라사랑 아이디</th>
-                    <td class="signup_input"><input type="text" name="cardname"> @narasarang.or.kr</td>
+                <tr class="signup-row">
+                    <th class="signup-header">* 나라사랑 아이디</th>
+                    <td class="signup-input"><input type="text" name="cardname"> @narasarang.or.kr</td>
                 </tr>
 
-                <tr class="signup_row">
-                    <th class="signup_header">* 소속</th>
-                    <td class="signup_input">
+                <tr class="signup-row">
+                    <th class="signup-header">* 소속</th>
+                    <td class="signup-input">
                         <select name="affiliation" size="1">
                             <option value='0'>선택</option>
                             <option value='1'>육군</option>
@@ -58,8 +76,10 @@
                 </tr>
             </table>
 
-            <input class="signup_bt" type="submit" value="회원가입">
-            <input class="signup_bt" type="reset" value="취소">
+            <div class="signup-bt">
+                <input type="submit" value="회원가입">
+                <input type="reset" value="취소">
+            </div>
         </form>
     </div>
 </body>
