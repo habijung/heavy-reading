@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'mainpage.apps.MainpageConfig',
     'accounts.apps.AccountsConfig',
     'mypage.apps.MypageConfig',
+    'notice.apps.NoticeConfig',
     'imagekit',
 ]
 

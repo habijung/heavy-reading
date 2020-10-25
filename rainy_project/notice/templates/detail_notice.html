@@ -25,6 +25,7 @@
             {% endif %}
         </div>
     </div>
+
     <div class="header">
         <h1><a href="{% url 'main' %}">진중한 독서</a></h1>
         <form action="{% url 'search' %}" method="POST">
@@ -32,14 +33,11 @@
             <input type="submit">
         </form>
     </div>
-    
+
     <div class="content">
-        {% for book in books.all %}
-            <div id="booklist" OnClick="location.href='{% url 'detail' book.id %}'">
-                <img src="{{ book.cover_thumbnail.url }}" alt="cover">
-                <p>{{book.title}}</p>
-            </div>
-        {% endfor %}
+        <p>{{notice.title}}</p>
+        <p>{{notice.text}}</p>
     </div>
 </body>
+
 </html>
