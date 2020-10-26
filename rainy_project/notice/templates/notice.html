@@ -32,6 +32,7 @@
         </div>
 
         <h1><a href="{% url 'main' %}">진중한 독서</a></h1>
+        <h2>공지사항</h2>
     </div>
 
     <div class="row mt-2">
@@ -40,17 +41,17 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>순번</th>
-                            <th>제목</th>
-                            <th>날짜</th>
+                            <th class="notice-header">순번</th>
+                            <th class="notice-header">제목</th>
+                            <th class="notice-header">날짜</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for notice in notices %}
                             <tr>
-                                <td id="notice-id">{{notice.id}}</td>
-                                <td id="notice-title"><a href="{% url 'detail_notice' notice.id %}">{{notice.title}}</a></td>
-                                <td id="notice-time">{{notice.pub_date}}</td>
+                                <td class="notice-body" id="notice-id">{{notice.id}}</td>
+                                <td class="notice-body" id="notice-title"><a href="{% url 'detail_notice' notice.id %}">{{notice.title}}</a></td>
+                                <td class="notice-body" id="notice-time">{{notice.pub_date | date:'Y-n-j'}}</td>
                             </tr>
                         {% endfor %}
                     </tbody>

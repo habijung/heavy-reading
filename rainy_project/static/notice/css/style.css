@@ -72,28 +72,111 @@ h2 {
 /* table part */
 .table {
     width: 70%;
-    margin: 5% auto;
+    margin: 3% auto;
     border: 2px solid #dadada;
     border-radius: .5em;
 }
 
-table > thead > tr > th {
+.notice-header {
     height: 50px;
-    margin: 0;
-    border-bottom: 3px solid #a0a0a0;
+    padding-top: 20px;
+    padding-left: 20px;
 }
 
-table > tbody > tr > td {
+.notice-header::after {
+    content: "";
+    display: block;
+    width: 80%;
+    border-bottom: 2px solid #000000;
+    margin: 10px auto 0 auto;
+}
+
+.notice-body {
     height: 50px;
     text-align: center;
     font-weight: bold;
+    padding-left: 20px;
+}
+
+.notice-body::after {
+    content: "";
+    display: block;
+    width: 80%;
+    border-collapse: collapse;
+    border-bottom: 1px solid #dddddd;
+    margin: 10px auto 0 auto;
 }
 
 #notice-id {
-    width: 10%;
+    width: 15%;
 }
 
 #notice-title {
-    width: 50%;
+    width: 60%;
     margin: auto;
+}
+
+/* page bt part */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+
+    margin: 0 auto;
+    padding-left: 0;
+    margin: 0 auto;
+
+
+    border-radius: 0.25rem;
+}
+
+.page-item {
+    margin: 0 5px;
+    padding: 5px 10px;
+    display: list-item;
+    border: 1px solid #b6b6b6;
+    border-radius: 0.25rem;
+}
+
+/* notice > detail part */
+.notice-detail-header {
+    display: block;
+    padding-top: 3%;
+}
+
+#notice-detail-title {
+    font-size: 30px;
+    text-align: left;
+    padding-left: 100px;
+}
+
+#notice-detail-title::after {
+    content: "";
+    display: block;
+    width: 60%;
+    border-bottom: 3px solid #000000;
+    padding-left: 3%;
+    margin: 10px 0;
+}
+
+#notice-detail-date {
+    padding: 0;
+    margin-right: 5%;
+    text-align: right;
+}
+
+#notice-detail-text::before {
+    content: "";
+    display: block;
+    width: 100%;
+    border-top: 2px dotted #555555;
+    margin: 10% auto 5% auto;
+}
+
+#notice-detail-text {
+    width: 80%;
+    margin: 5% auto 7% auto;
+    font-size: 18px;
+    text-align: justify;
 }
