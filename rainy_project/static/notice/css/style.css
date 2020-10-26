@@ -8,7 +8,6 @@ a {
     color: black;
 }
 
-
 /* header part */
 .header {
     width: 70%;
@@ -70,72 +69,31 @@ h2 {
     text-align: center;
 }
 
-/* main.html > booklist part */
-#booklist {
-    float: left;
-    margin: 0 2% 4% 4%;
-    cursor: pointer;
-    width: 280px;
-    text-align: center;
-}
-
-#booklist > img {
-    margin-bottom: 4%;
-}
-
-#booklist > p {
-    margin-top: 1%;
-}
-
-/* detail.html > book part */
-#book > img{
-    margin-bottom: 2%;
-}
-
-#book p{
-    margin: 0%;
-}
-
-.content .subtitle {
-    background-color: #e9e9e9;
-    border-radius: 10px;
-    font-family: 'Jua', sans-serif;
-    font-size: 30px;
-    width: 30%;
-    margin: 5% auto 0 auto;
-}
-
-.content .subtitle-author {
+/* table part */
+.table {
     width: 70%;
-    margin: 2% auto 0 auto;
-    font-size: 20px;
+    margin: 5% auto;
+    border: 2px solid #dadada;
+    border-radius: .5em;
 }
 
-.content .subtitle-body {
-    width: 70%;
-    margin: 2% auto 5% auto;
-    text-align: justify;
-    line-height: 2em;
-    font-size: 18px;
-}
-
-#create {
+table > thead > tr > th {
+    height: 50px;
     margin: 0;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    border-bottom: 3px solid #a0a0a0;
 }
 
-.ratings {
-    float: left;
-    margin-right: 0.5%;
+table > tbody > tr > td {
+    height: 50px;
+    text-align: center;
+    font-weight: bold;
 }
 
-.container p {
-    vertical-align: middle;
+#notice-id {
+    width: 10%;
 }
 
-/* detail.html */
-#book > p {
-    font-family: 'Jua', sans-serif;
-    font-size: 40px;
+#notice-title {
+    width: 50%;
+    margin: auto;
 }

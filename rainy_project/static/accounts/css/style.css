@@ -22,7 +22,7 @@ a {
 
 .user-login-box {
     text-align: center;
-    padding-right: 20px;
+    padding-right: 10px;
 }
 
 h1 {
@@ -53,6 +53,7 @@ h2 {
 .signup-header {
     width: 30%;
     font-size: 20px;
+    padding-left: 10%;
 }
 
 .signup-input {
