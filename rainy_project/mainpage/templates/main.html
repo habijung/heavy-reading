@@ -29,8 +29,8 @@
             {% if user.is_authenticated %}
             
                 <a class="user-login-box">{{ user.username }} 님, 안녕하세요!</a>
-                <a href="{% url 'users' %}">마이페이지</a>
-                <a href="{% url 'notice' %}">공지사항</a>
+                <a class="user-login-box" href="{% url 'users' %}">마이페이지</a>
+                <a class="user-login-box" href="{% url 'notice' %}">공지사항</a>
                 <a class="user-login-box" href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
 
                 <form id="logout" method="POST" action="{% url 'logout' %}">

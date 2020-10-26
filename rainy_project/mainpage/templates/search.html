@@ -8,28 +8,15 @@
     <title>진중한 독서</title>
 </head>
 <body>
-    <div class="user_nav">
-        <div id="login_box">
-            {% if user.is_authenticated %}
-                <p>{{ user.username }}</p>
-                <a href="{% url 'users' %}">마이페이지</a>
-                <a href="{% url 'notice' %}">공지사항</a>
-                <a href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
-                <form id="logout" method="POST" action="{% url 'logout' %}">
-                    {% csrf_token %}
-                    <input type="hidden" />
-                </form>
-            {% else %}
-                <a href="{% url 'signup' %}">회원가입</a>
-                <a href="{% url 'login' %}">로그인</a>
-            {% endif %}
-        </div>
-    </div>
     <div class="header">
         <div class="header-login">
             {% if user.is_authenticated %}
+            
                 <a class="user-login-box">{{ user.username }} 님, 안녕하세요!</a>
+                <a class="user-login-box" href="{% url 'users' %}">마이페이지</a>
+                <a class="user-login-box" href="{% url 'notice' %}">공지사항</a>
                 <a class="user-login-box" href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
+
                 <form id="logout" method="POST" action="{% url 'logout' %}">
                     {% csrf_token %}
                     <input type="hidden">

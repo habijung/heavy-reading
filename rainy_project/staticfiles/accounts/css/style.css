@@ -1,20 +1,103 @@
+/* font import */
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+/* common part */
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* header part */
+.header {
+    width: 70%;
+    padding-top: 10px;
+    margin: 0 auto;
+    margin-bottom: 1%;
+}
+
+.header-login {
+    display: block;
+    text-align: right;
+}
+
+.user-login-box {
+    text-align: center;
+    padding-right: 20px;
+}
+
 h1 {
-    color: #9c33ff;
+    font-size: 60px;
+    font-family: 'Gugi', cursive;
+    display: block;
+    text-align: center;
 }
 
-.signup_info {
-    width: 940px;
-    background-color: #707070;
-    padding: 5 0 5 0;
+h2 {
+    font-size: 40px;
+    font-family: 'Gugi', cursive;
+    display: block;
+    text-align: center;
 }
 
-.signup_header {
-    width: 150px;
-    padding: 10px 50px 10px 5px;
+/* signup.html part */
+#signup-info {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 100px;
 }
 
-.signup_bt {
-    margin-top: 30px;
-    margin-left: 150px;
-    padding: 5px 10px;
+.signup-row {
+    height: 50px;
+}
+
+.signup-header {
+    width: 30%;
+    font-size: 20px;
+}
+
+.signup-input {
+    width: 20%;
+}
+
+.signup-input > input {
+    height: 20px;
+    vertical-align: middle;
+}
+
+.signup-input > select {
+    height: 25px;
+    vertical-align: middle;
+}
+
+.signup-bt {
+    display: block;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.signup-bt > input {
+    height: 30px;
+    vertical-align: middle;
+    margin: auto 20px;
+}
+
+/* login.html part */
+#login-form {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 100px;
+    text-align: center;
+}
+
+#login-form > form > input {
+    display: block;
+    height: 25px;
+    margin: 2% auto;
+}
+
+/* detail.html */
+#book > p {
+    font-family: 'Jua', sans-serif;
+    font-size: 30px;
 }

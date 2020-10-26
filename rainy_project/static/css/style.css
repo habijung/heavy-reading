@@ -1,5 +1,6 @@
 /* font import */
 @import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
 /* common part */
 a {
@@ -23,7 +24,7 @@ a {
 
 .user-login-box {
     text-align: center;
-    padding-right: 20px;
+    padding-right: 10px;
 }
 
 h1 {
@@ -107,4 +108,10 @@ h1 {
 
 .container p {
     vertical-align: middle;
+}
+
+/* detail.html */
+#book > p {
+    font-family: 'Jua', sans-serif;
+    font-size: 40px;
 }

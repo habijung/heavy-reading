@@ -39,10 +39,9 @@ h2 {
     text-align: center;
 }
 
-/* content part */
+/* signup.html part */
 #signup-info {
     width: 70%;
-    /* background-color: #707070; */
     margin: 0 auto;
     margin-top: 100px;
 }
@@ -82,15 +81,16 @@ h2 {
     margin: auto 20px;
 }
 
-/*
-.signup_header {
-    width: 150px;
-    padding: 10px 50px 10px 5px;
+/* login.html part */
+#login-form {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 100px;
+    text-align: center;
 }
 
-.signup_bt {
-    margin-top: 30px;
-    margin-left: 150px;
-    padding: 5px 10px;
+#login-form > form > input {
+    display: block;
+    height: 25px;
+    margin: 2% auto;
 }
-*/
