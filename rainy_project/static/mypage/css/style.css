@@ -60,11 +60,72 @@ h2 {
     margin-right: 100px;
 }
 
-/* content part */
-.content {
-    position: relative;
-    top: 50px;
-    width: 80%;
+/* mycontent part */
+
+.my_content {
+    width: 644px;
     margin: 0 auto;
+    margin-top: 200px;
+    cursor: pointer;
+}
+
+#my_rating {
+    display: inline-block;
+    border: 1px solid green;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    margin: 4px;
+}
+
+#my_report {
+    display: inline-block;
+    border: 1px solid red;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    margin: 4px;
+}
+
+#my_memo {
+    display: inline-block;
+    border: 1px solid blue;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    margin: 4px;
+}
+
+.my_content h2 {
+    font-size: 30px;
+}
+
+/* my_rating.html */
+
+#booklist {
+    float: left;
+    margin: 2% 0% 2% 4%;
+    cursor: pointer;
+    width: 200px;
     text-align: center;
+}
+
+#booklist > img {
+    margin-bottom: 4%;
+}
+
+#booklist > p {
+    margin-top: 1%;
+}
+
+/* my_memo.html */
+
+.card {
+    width: 200px;
+    height: 250px;
+    border: 1px solid black;
+}
+
+#memo {
+    
 }

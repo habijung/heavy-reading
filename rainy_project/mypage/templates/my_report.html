@@ -46,18 +46,13 @@
         <h2>마이페이지</h2>
     </div>
 
-    <div class="my_content">
-        <div id="my_rating" OnClick="location.href='{% url 'my_rating' %}'">
-            <h2>평점</h2>
-        </div>
-        <div id="my_report" OnClick="location.href='{% url 'my_report' %}'">
-            <h2>독후감</h2>
-        </div>
-        <div id="my_memo" OnClick="location.href='{% url 'my_memo' %}'">
-            <h2>메모</h2>
-        </div>
+    <div class="content">
+        <h3>독후감</h3>
+        {% for report in reports %}
+            <p>제목 : {{report.title}}</p> 
+            <p>내용 : {{report.text}}</p> 
+        {% endfor %}
     </div>
-
 </body>
 
 </html>
