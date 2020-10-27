@@ -79,6 +79,22 @@ h2 {
     text-align: center;
 }
 
+#booklist::before {
+    content: "";
+    display: block;
+    width: 90%;
+    border-top: 2px solid #2e2e2e;
+    margin: 5px auto;
+}
+
+#booklist::after {
+    content: "";
+    display: block;
+    width: 90%;
+    border-top: 2px solid #2e2e2e;
+    margin: 5px auto;
+}
+
 #booklist > img {
     margin-bottom: 4%;
 }
@@ -86,6 +102,17 @@ h2 {
 #booklist > p {
     margin-top: 1%;
 }
+
+/*
+#booklist-title::before {
+    content: "";
+    display: block;
+    width: 90%;
+    border-top: 1px dashed #9c9c9c;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+*/
 
 /* detail.html > book part */
 #book > img{

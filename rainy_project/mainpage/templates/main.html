@@ -66,7 +66,7 @@
         {% for book in books %}
             <div id="booklist" OnClick="location.href='{% url 'detail' book.id %}'">
                 <img src="{{ book.cover_thumbnail.url }}" alt="cover">
-                <p> {{book.title}} </p>
+                <p id="booklist-title"> {{book.title}} </p>
                 <p> <img src="{% static 'img/star_icon.png' %}" alt="star_icon" width="16px" height="16px"> {{book.grade}} ({{book.count}}명) </p>
             </div>
         {% endfor %}
