@@ -101,7 +101,7 @@ def create_report(request, book_id):
 
         report.save()
 
-        return redirect('/detail/' + str(book_id))
+        return redirect('/create_report_page/' + str(book_id))
 
 def report_del(request, report_id):
     if request.method == "POST":

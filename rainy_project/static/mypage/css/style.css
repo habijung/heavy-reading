@@ -120,12 +120,211 @@ h2 {
 
 /* my_memo.html */
 
-.card {
-    width: 200px;
-    height: 250px;
-    border: 1px solid black;
+.content {
+    width: 90%;
+    margin: 0 auto;
 }
 
-#memo {
-    
+/*
+    친효애드온 : 포스트잇 모듈 (마크1) 시작
+    https://rgy0409.tistory.com
+    e-mail : rgy0409@gmail.com
+*/
+.rgyPostIt {
+    position: relative;
+    display: inline-block;
+    padding: 10px 45px 10px 10px;
+    margin: 5px 20px;
+    width: 250px;
+    border: 1px solid #f8f861;
+    border-left: 30px solid #f8f861;
+    border-bottom-right-radius: 60px 10px;
+    font-family: 'Nanum Pen Script';
+    font-size: 27px;
+    color: #555;
+    word-break: break-all;
+    background: #ffff88;
+    background: -moz-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(81%, #ffff88), color-stop(82%, #ffff88), color-stop(82%, #ffff88), color-stop(100%, #ffffc6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* IE10+ */
+    background: linear-gradient(135deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffff88', endColorstr='#ffffc6', GradientType=1); /* IE6-9 fallback on horizontal gradient */
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+}
+
+div.rgyPostIt::after {
+    content: " ";
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    bottom: 35px;
+    width: 150px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 2px 35px 5px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 2px 35px 5px rgba(0, 0, 0, 0.4);
+    transform: matrix(-1, -0.1, 0, 1, 0, 0);
+    -webkit-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+    -moz-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+    -ms-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+    -o-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+}
+
+div.rgyPostIt:hover {
+    border-bottom-right-radius: 75px 30px;
+}
+
+div.rgyPostIt:hover::after {
+    box-shadow: 2px 37px 7px rgba(0, 0, 0, 0.37);
+    -webkit-box-shadow: 2px 37px 7px rgba(0, 0, 0, 0.37);
+}
+
+div.rgyPostIt > p {
+    padding: 5px 0 !important;
+}
+
+div.rgyPostIt > p::before {
+    content:"\f198";
+    margin-right: 7px;
+    font-family: "FontAwesome";
+    font-weight: normal;
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+div.rgyPostIt > p > a {
+    color: #555;
+}
+/* 포스트잇 모듈 (마크1) 끝 */
+
+
+/*my_report*/
+
+.report_content {
+    position: relative;
+    top: 50px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.table {
+    width: 70%;
+    margin: 3% auto;
+    border: 2px solid #dadada;
+    border-radius: .5em;
+}
+
+.report-header {
+    height: 50px;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.report-header::after {
+    content: "";
+    display: block;
+    width: 80%;
+    border-bottom: 2px solid #000000;
+    margin: 10px auto 0 auto;
+}
+
+.report-body {
+    height: 50px;
+    text-align: center;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.report-body::after {
+    content: "";
+    display: block;
+    width: 80%;
+    border-collapse: collapse;
+    border-bottom: 1px solid #dddddd;
+    margin: 10px auto 0 auto;
+}
+
+#report-id {
+    width: 15%;
+}
+
+#report-title {
+    width: 60%;
+    margin: auto;
+}
+
+/* page bt part */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+
+    margin: 0 auto;
+    margin-bottom: 3%;
+    padding-left: 0;
+    border-radius: 0.25rem;
+}
+
+.page-item {
+    margin: 0 5px;
+    padding: 5px 10px;
+    display: list-item;
+    border: 1px solid #b6b6b6;
+    border-radius: 0.25rem;
+}
+
+.report-detail-header {
+    display: block;
+    padding-top: 3%;
+}
+
+#report-detail-title {
+    font-size: 30px;
+    text-align: left;
+    padding-left: 100px;
+}
+
+#report-detail-title::after {
+    content: "";
+    display: block;
+    width: 60%;
+    border-bottom: 3px solid #000000;
+    padding-left: 3%;
+    margin: 10px 0;
+}
+
+#report-detail-date {
+    padding: 0;
+    margin-right: 5%;
+    text-align: right;
+}
+
+#report-detail-text::before {
+    content: "";
+    display: block;
+    width: 100%;
+    border-top: 2px dotted #555555;
+    margin: 10% auto 5% auto;
+}
+
+#report-detail-text {
+    width: 80%;
+    margin: 5% auto 7% auto;
+    font-size: 18px;
+    text-align: justify;
+}
+
+#report-list-bt {
+    margin: 0 auto;
+    margin-bottom: 3%;
+    width: 70px;
+    height: 30px;
+    font-size: 16px;
 }

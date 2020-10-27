@@ -6,40 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/rating.css' %}">
+    <link rel="stylesheet" href="{% static 'css/creat.css' %}">
     <title>진중한 독서</title>
 </head>
 <body>
-    <div class="user_nav">
-        <div id="login_box">
+    <div class="header">
+        <div class="header-login">
             {% if user.is_authenticated %}
-                <p>{{ user.username }}</p>
-                <a href="{% url 'users' %}">마이페이지</a>
-                <a href="{% url 'notice' %}">공지사항</a>
-                <a href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
+            
+                <a class="user-login-box">{{ user.username }} 님, 안녕하세요!</a>
+                <a class="user-login-box" href="{% url 'notice' %}">공지사항</a>
+                <a class="user-login-box" href="{% url 'users' %}">마이페이지</a>
+                <a class="user-login-box" href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
+
                 <form id="logout" method="POST" action="{% url 'logout' %}">
                     {% csrf_token %}
-                    <input type="hidden" />
+                    <input type="hidden">
                 </form>
             {% else %}
-                <a href="{% url 'signup' %}">회원가입</a>
-                <a href="{% url 'login' %}">로그인</a>
+                <a class="user-login-box" href="{% url 'notice' %}">공지사항</a>
+                <a class="user-login-box" href="{% url 'signup' %}">회원가입</a>
+                <a class="user-login-box" href="{% url 'login' %}">로그인</a>
             {% endif %}
         </div>
-    </div>
-    <div class="header">
+
         <h1><a href="{% url 'main' %}">진중한 독서</a></h1>
-        <form action="{% url 'search' %}" method="POST">
-            <input type="text" name="q" value="{{q}}">
-            <input type="submit">
-        </form>
+
+        <div class="header-searching">
+            <form id="searching-form" action="{% url 'search' %}" method="POST">
+                {% csrf_token %}
+                <input class="searching-bar" type="text" name="q" value="{{q}}">
+                <input class="searching-bt" type="submit">
+            </form>
+        </div>
     </div>
     
     <div class="content">
         <div id="book">
             <img src="{{ book.cover_thumbnail.url }}" alt="cover">
-            <p> {{book.title}} </p>
-
+            <p id="book-title"> {{book.title}} </p>
         </div>
+
         <div class="container" style="margin-top: 35px;">
             <div class="ratings">
                 <input type="radio" name="star" id="rating" value="1">
@@ -51,43 +58,74 @@
             <p>({{book.grade}})</p>
             <span class="info"></span>
         </div>
-        <button><a href="{% url 'create_report_page' book.id %}">독후감 작성</a></button>
-        <button><a href="{% url 'create_memo_page' book.id %}">메모하기</a></button>
-
+        <button class="writing-bt"><a href="{% url 'create_report_page' book.id %}">독후감 작성</a></button>
+        <button class="writing-bt"><a href="{% url 'create_memo_page' book.id %}">메모하기</a></button>
     </div>
+
     {% if report == -1 %}
     <div class="content">
         <form id="create" method="POST" action="{% url 'create_report' book.id %}">
             {% csrf_token %}
-            제목 : <input type="text" name="title">
-            <br><br>
-            <textarea name="text" cols="70" rows="40"></textarea>
-            <br>
-            <label><input type="checkbox" name="is_open" value="True">공개 여부</label>
+            <table id="create-table">
+                <tbody>
+                    <tr>
+                        <th>제목</th>
+                        <td><input id="create-title" type="text" name="title"></td>
+                    </tr>
+                    <tr>
+                        <th>내용</th>
+                        <td><textarea name="text" cols="60" rows="30"></textarea></td>
+                    </tr>
+                    <tr>
+                        <th>공개</th>
+                        <td><input id="create-checkbox" type="checkbox" name="is_open" value="True"></td>
+                    </tr>
+                </tbody>
+            </table>
+
             <input type="submit" value="작성하기">
+            <input type="button" value="취소" onClick="location.href='{% url 'detail' book.id %}'">
         </form>
     </div>
+
     {% else %}
     <div class="content">
         <form id="create" method="POST" action="{% url 'create_report' book.id %}">
             {% csrf_token %}
-            제목 : <input type="text" name="title" value="{{report.title}}">
-            <br><br>
-            <textarea name="text" cols="70" rows="40">{{report.text}}</textarea>
-            <br>
-            {% if report.approved_open == True %}
-            <label><input type="checkbox" name="is_open" value="True" checked>공개 여부</label>
-            {% else %}
-            <label><input type="checkbox" name="is_open" value="True">공개 여부</label>
-            {% endif %}
+            <table id="create-table">
+                <tbody>
+                    <tr>
+                        <th>제목</th>
+                        <td><input id="create-title" type="text" name="title" value="{{report.title}}"></td>
+                    </tr>
+                    <tr>
+                        <th>내용</th>
+                        <td><textarea name="text" cols="60" rows="30">{{report.text}}</textarea></td>
+                    </tr>
+                    <tr>
+                        <th>공개</th>
+                        <td>
+                            {% if report.approved_open == True %}
+                            <input id="create-checkbox" type="checkbox" name="is_open" value="True" checked>
+                            {% else %}
+                            <input id="create-checkbox" type="checkbox" name="is_open" value="True">
+                            {% endif %}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
             <input type="submit" value="작성하기">
+            <input type="button" value="취소" onClick="location.href='{% url 'detail' book.id %}'">
         </form>
+
         <form action="{% url 'report_del' report.id %}" method="POST">
             {% csrf_token %}
             <input type="submit" value="삭제">
         </form>
     </div>
     {% endif %}
+
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/rating.js' %}"></script>
     <script>

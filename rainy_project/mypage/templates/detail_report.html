@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
-    <link rel="stylesheet" href="{% static 'notice/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'mypage/css/style.css' %}">
     <title>진중한 독서</title>
 </head>
 <body>
@@ -29,25 +29,25 @@
         </div>
 
         <h1><a href="{% url 'main' %}">진중한 독서</a></h1>
-        <h2>공지사항</h2>
+        <h2>독후감</h2>
     </div>
 
-    <div class="content">
+    <div class="report_content">
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th class="notice-detail-header" id="notice-detail-title">{{notice.title}}</th>
-                    <th class="notice-detail-header" id="notice-detail-date">{{notice.pub_date | date:'Y-n-j'}}</th>
+                    <th class="report-detail-header" id="report-detail-title">{{report.title}}</th>
+                    <th class="report-detail-header" id="report-detail-date">{{report.pub_date | date:'Y-n-j'}}</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><p id="notice-detail-text">{{notice.text}}</p></td>
+                    <td><p id="report-detail-text">{{report.text}}</p></td>
                 </tr>
             </tbody>
         </table>
 
-        <input id="notice-list-bt" type="button" value="뒤로" onClick="location.href='{% url 'notice' %}'">
+        <input id="report-list-bt" type="button" value="뒤로" onClick="location.href='{% url 'my_report' %}'">
     </div>
 </body>
 

@@ -17,8 +17,8 @@
             {% if user.is_authenticated %}
             
                 <a class="user-login-box">{{ user.username }} 님, 안녕하세요!</a>
-                <a class="user-login-box" href="{% url 'users' %}">마이페이지</a>
                 <a class="user-login-box" href="{% url 'notice' %}">공지사항</a>
+                <a class="user-login-box" href="{% url 'users' %}">마이페이지</a>
                 <a class="user-login-box" href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
 
                 <form id="logout" method="POST" action="{% url 'logout' %}">
@@ -26,12 +26,14 @@
                     <input type="hidden">
                 </form>
             {% else %}
+                <a class="user-login-box" href="{% url 'notice' %}">공지사항</a>
                 <a class="user-login-box" href="{% url 'signup' %}">회원가입</a>
                 <a class="user-login-box" href="{% url 'login' %}">로그인</a>
             {% endif %}
         </div>
 
         <h1><a href="{% url 'main' %}">진중한 독서</a></h1>
+        <h2>공지사항</h2>
     </div>
 
     <div class="row mt-2">
@@ -40,17 +42,17 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>순번</th>
-                            <th>제목</th>
-                            <th>날짜</th>
+                            <th class="notice-header">순번</th>
+                            <th class="notice-header">제목</th>
+                            <th class="notice-header">날짜</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for notice in notices %}
                             <tr>
-                                <td id="notice-id">{{notice.id}}</td>
-                                <td id="notice-title"><a href="{% url 'detail_notice' notice.id %}">{{notice.title}}</a></td>
-                                <td id="notice-time">{{notice.pub_date}}</td>
+                                <td class="notice-body" id="notice-id">{{notice.id}}</td>
+                                <td class="notice-body" id="notice-title"><a href="{% url 'detail_notice' notice.id %}">{{notice.title}}</a></td>
+                                <td class="notice-body" id="notice-time">{{notice.pub_date | date:'Y-n-j'}}</td>
                             </tr>
                         {% endfor %}
                     </tbody>

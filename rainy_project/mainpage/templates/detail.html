@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/rating.css' %}">
+    <link rel="stylesheet" href="{% static 'css/creat.css' %}">
     <title>진중한 독서</title>
 </head>
 <body>
@@ -14,8 +15,8 @@
             {% if user.is_authenticated %}
             
                 <a class="user-login-box">{{ user.username }} 님, 안녕하세요!</a>
-                <a class="user-login-box" href="{% url 'users' %}">마이페이지</a>
                 <a class="user-login-box" href="{% url 'notice' %}">공지사항</a>
+                <a class="user-login-box" href="{% url 'users' %}">마이페이지</a>
                 <a class="user-login-box" href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
 
                 <form id="logout" method="POST" action="{% url 'logout' %}">
@@ -23,6 +24,7 @@
                     <input type="hidden">
                 </form>
             {% else %}
+                <a class="user-login-box" href="{% url 'notice' %}">공지사항</a>
                 <a class="user-login-box" href="{% url 'signup' %}">회원가입</a>
                 <a class="user-login-box" href="{% url 'login' %}">로그인</a>
             {% endif %}
@@ -42,7 +44,7 @@
     <div class="content">
         <div id="book">
             <img src="{{ book.cover_thumbnail.url }}" alt="cover">
-            <p> {{book.title}} </p>
+            <p id="book-title"> {{book.title}} </p>
         </div>
 
         {% if user.is_authenticated %}
@@ -57,8 +59,8 @@
                 <p>({{book.grade}})</p>
                 <span class="info"></span>
             </div>
-            <button><a href="{% url 'create_report_page' book.id %}">독후감 작성</a></button>
-            <button><a href="{% url 'create_memo_page' book.id %}">메모하기</a></button>
+            <button class="writing-bt"><a href="{% url 'create_report_page' book.id %}">독후감 작성</a></button>
+            <button class="writing-bt"><a href="{% url 'create_memo_page' book.id %}">메모하기</a></button>
 
         {% endif %}
             <p class="subtitle">저자</p>
