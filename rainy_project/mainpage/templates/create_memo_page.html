@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/rating.css' %}">
+    <link rel="stylesheet" href="{% static 'css/creat.css' %}">
     <title>진중한 독서</title>
 </head>
 <body>
@@ -45,7 +46,7 @@
             <img src="{{ book.cover_thumbnail.url }}" alt="cover">
             <p id="book-title"> {{book.title}} </p>
         </div>
-        
+
         <div class="container" style="margin-top: 35px;">
             <div class="ratings">
                 <input type="radio" name="star" id="rating" value="1">
@@ -57,15 +58,29 @@
             <p>({{book.grade}})</p>
             <span class="info"></span>
         </div>
-        <button><a href="{% url 'create_report_page' book.id %}">독후감 작성</a></button>
-        <button><a href="{% url 'create_memo_page' book.id %}">메모하기</a></button>
+        <button class="writing-bt"><a href="{% url 'create_report_page' book.id %}">독후감 작성</a></button>
+        <button class="writing-bt"><a href="{% url 'create_memo_page' book.id %}">메모하기</a></button>
 
     </div>
     <div class="content">
         <form id="create" method="POST" action="{% url 'create_memo' book.id %}">
             {% csrf_token %}
-            {{form.as_p}}
-            <input type="submit" value="작성하기">
+            <!--{{form.as_p}}-->
+            <table id="create-table">
+                <tbody>
+                    <tr>
+                        <th>쪽</th>
+                        <td><input type="number" name="page" placeholder="숫자를 입력하세요."></td>
+                    </tr>
+                    <tr>
+                        <th>구절</th>
+                        <td><textarea id="memo-phrase" name="phrase" cols="60" rows="10" placeholder="자기만의 명언을 남겨주세요. (최대 255자)""></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <input class="report-submit-bt-none" type="submit" value="작성하기">
+            <input class="report-submit-bt-none" type="button" value="취소" onClick="location.href='{% url 'detail' book.id %}'">
         </form>
     </div>
 

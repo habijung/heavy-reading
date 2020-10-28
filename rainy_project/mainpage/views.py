@@ -101,7 +101,7 @@ def create_report(request, book_id):
 
         report.save()
 
-        return redirect('/detail/' + str(book_id))
+        return redirect('/create_report_page/' + str(book_id))
 
 def report_del(request, report_id):
     if request.method == "POST":
@@ -110,6 +110,7 @@ def report_del(request, report_id):
         report_delete.delete()
         return redirect('/detail/' + str(book_id))
 
+'''
 def create_memo(request, book_id):
     if request.method == 'POST':
         book = get_object_or_404(Book, pk=book_id)
@@ -122,6 +123,21 @@ def create_memo(request, book_id):
             memo.save()
 
             return redirect('/detail/' + str(book_id))
+'''
+
+def create_memo(request, book_id):
+    if request.method == 'POST':
+        book = get_object_or_404(Book, pk=book_id)
+        memo = Memo();
+
+        memo.page = request.POST['page']
+        memo.phrase = request.POST['phrase']
+        memo.book = book
+        memo.pub_date = timezone.datetime.now()
+        memo.user = request.user
+        memo.save()
+
+        return redirect('/detail/' + str(book_id))
 
 @csrf_exempt
 def rating(request, book_id):

@@ -1,0 +1,72 @@
+.writing-bt {
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    margin: auto 20px;
+    margin-top: 30px;
+}
+
+#create {
+    margin: 0;
+    padding-top: 5%;
+    padding-bottom: 10px;
+}
+
+#create-table {
+    margin: 20px auto;
+    margin-bottom: 50px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+}
+
+#create-table > tbody > tr > th {
+    text-align: center;
+    padding: 20px 100px;
+}
+
+#create-table > tbody > tr > td {
+    text-align: left;
+}
+
+#create-title {
+    width: 300px;
+    height: 20px;
+}
+
+#create-checkbox {
+    
+    width: 18px;
+    height: 18px;
+    margin: auto;
+    vertical-align: middle;
+}
+
+.report-submit-bt-none {
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    margin: auto 10px;
+    margin-bottom: 5%;
+}
+
+.report-submit-bt-mod {
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    margin: auto 10px;
+    margin-bottom: 0;
+}
+
+.report-del-bt {
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 10px 20px;
+    margin-bottom: 5%;
+}
+
+#memo-phrase {
+    margin: 3% auto;
+    display: inline-block;
+    vertical-align: middle;
+}

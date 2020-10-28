@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/rating.css' %}">
+    <link rel="stylesheet" href="{% static 'css/creat.css' %}">
     <title>진중한 독서</title>
 </head>
 <body>
@@ -58,8 +59,8 @@
                 <p>({{book.grade}})</p>
                 <span class="info"></span>
             </div>
-            <button><a href="{% url 'create_report_page' book.id %}">독후감 작성</a></button>
-            <button><a href="{% url 'create_memo_page' book.id %}">메모하기</a></button>
+            <button class="writing-bt"><a href="{% url 'create_report_page' book.id %}">독후감 작성</a></button>
+            <button class="writing-bt"><a href="{% url 'create_memo_page' book.id %}">메모하기</a></button>
 
         {% endif %}
             <p class="subtitle">저자</p>

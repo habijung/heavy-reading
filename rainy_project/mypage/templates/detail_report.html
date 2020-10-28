@@ -1,0 +1,54 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="stylesheet" href="{% static 'mypage/css/style.css' %}">
+    <title>진중한 독서</title>
+</head>
+<body>
+    <div class="header">
+        <div class="header-login">
+            {% if user.is_authenticated %}
+            
+                <a class="user-login-box">{{ user.username }} 님, 안녕하세요!</a>
+                <a class="user-login-box" href="{% url 'notice' %}">공지사항</a>
+                <a class="user-login-box" href="{% url 'users' %}">마이페이지</a>
+                <a class="user-login-box" href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
+
+                <form id="logout" method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <input type="hidden">
+                </form>
+            {% else %}
+                <a class="user-login-box" href="{% url 'notice' %}">공지사항</a>
+                <a class="user-login-box" href="{% url 'signup' %}">회원가입</a>
+                <a class="user-login-box" href="{% url 'login' %}">로그인</a>
+            {% endif %}
+        </div>
+
+        <h1><a href="{% url 'main' %}">진중한 독서</a></h1>
+        <h2>독후감</h2>
+    </div>
+
+    <div class="report_content">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="report-detail-header" id="report-detail-title">{{report.title}}</th>
+                    <th class="report-detail-header" id="report-detail-date">{{report.pub_date | date:'Y-n-j'}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><p id="report-detail-text">{{report.text}}</p></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <input id="report-list-bt" type="button" value="뒤로" onClick="location.href='{% url 'my_report' %}'">
+    </div>
+</body>
+
+</html>
