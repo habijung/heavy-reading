@@ -53,7 +53,15 @@ def main_ajax(request):
 
 def detail(request, book_id):
     book_info = get_object_or_404(Book, pk=book_id)
-    return render(request, 'detail.html', {'book':book_info})
+    opened_report = Report.objects.filter(book=book_info, approved_open=True)
+    page = int(request.GET.get('p', 1))
+    paginator = Paginator(opened_report, 10)
+    reports = paginator.get_page(page)
+    return render(request, 'detail.html', {'book':book_info, 'reports':reports})
+
+def detail_opened_report(request, report_id):
+    report = get_object_or_404(Report, pk=report_id)
+    return render(request, "detail_opened_report.html", {"report":report})
 
 @csrf_exempt
 def search(request):
@@ -101,15 +109,9 @@ def create_report(request, book_id):
 
         report.save()
 
-        return redirect('/create_report_page/' + str(book_id))
-
-def report_del(request, report_id):
-    if request.method == "POST":
-        report_delete = get_object_or_404(Report, pk=report_id)
-        book_id = report_delete.book.id
-        report_delete.delete()
         return redirect('/detail/' + str(book_id))
-
+        
+'''
 def create_memo(request, book_id):
     if request.method == 'POST':
         book = get_object_or_404(Book, pk=book_id)
@@ -122,6 +124,21 @@ def create_memo(request, book_id):
             memo.save()
 
             return redirect('/detail/' + str(book_id))
+'''
+
+def create_memo(request, book_id):
+    if request.method == 'POST':
+        book = get_object_or_404(Book, pk=book_id)
+        memo = Memo()
+
+        memo.page = request.POST['page']
+        memo.phrase = request.POST['phrase']
+        memo.book = book
+        memo.pub_date = timezone.datetime.now()
+        memo.user = request.user
+        memo.save()
+
+        return redirect('/detail/' + str(book_id))
 
 @csrf_exempt
 def rating(request, book_id):

@@ -46,11 +46,6 @@
                 </tr>
             </tbody>
         </table>
-
-        <form action="{% url 'my_report_delete' report.id %}" method="POST">
-            {% csrf_token %}
-            <input id="report-list-bt" type="submit" value="삭제">
-        </form>
     </div>
 </body>
 

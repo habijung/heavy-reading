@@ -65,9 +65,22 @@
     <div class="content">
         <form id="create" method="POST" action="{% url 'create_memo' book.id %}">
             {% csrf_token %}
-            {{form.as_p}}
-            <input type="submit" value="작성하기">
-            <input type="button" value="취소" onClick="location.href='{% url 'detail' book.id %}'">
+            <!--{{form.as_p}}-->
+            <table id="create-table">
+                <tbody>
+                    <tr>
+                        <th>쪽</th>
+                        <td><input type="number" name="page" placeholder="숫자를 입력하세요."></td>
+                    </tr>
+                    <tr>
+                        <th>구절</th>
+                        <td><textarea id="memo-phrase" name="phrase" cols="60" rows="10" placeholder="자기만의 명언을 남겨주세요. (최대 255자)""></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <input class="report-submit-bt-none" type="submit" value="작성하기">
+            <input class="report-submit-bt-none" type="button" value="취소" onClick="location.href='{% url 'detail' book.id %}'">
         </form>
     </div>
 

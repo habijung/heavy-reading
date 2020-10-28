@@ -121,8 +121,9 @@ h2 {
 /* my_memo.html */
 
 .content {
-    width: 90%;
-    margin: 0 auto;
+    float: left;
+    width: 420px;
+    margin-left: 10px;
 }
 
 /*
@@ -135,7 +136,7 @@ h2 {
     display: inline-block;
     padding: 10px 45px 10px 10px;
     margin: 5px 20px;
-    width: 250px;
+    width: 280px;
     border: 1px solid #f8f861;
     border-left: 30px solid #f8f861;
     border-bottom-right-radius: 60px 10px;

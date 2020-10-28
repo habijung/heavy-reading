@@ -83,8 +83,8 @@
                 </tbody>
             </table>
 
-            <input type="submit" value="작성하기">
-            <input type="button" value="취소" onClick="location.href='{% url 'detail' book.id %}'">
+            <input class="report-submit-bt-none" type="submit" value="작성하기">
+            <input class="report-submit-bt-none" type="button" value="취소" onClick="location.href='{% url 'detail' book.id %}'">
         </form>
     </div>
 
@@ -115,13 +115,8 @@
                 </tbody>
             </table>
 
-            <input type="submit" value="작성하기">
-            <input type="button" value="취소" onClick="location.href='{% url 'detail' book.id %}'">
-        </form>
-
-        <form action="{% url 'report_del' report.id %}" method="POST">
-            {% csrf_token %}
-            <input type="submit" value="삭제">
+            <input class="report-submit-bt-mod" type="submit" value="수정하기">
+            <input class="report-submit-bt-mod" type="button" value="취소" onClick="location.href='{% url 'detail' book.id %}'">
         </form>
     </div>
     {% endif %}

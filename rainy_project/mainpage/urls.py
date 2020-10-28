@@ -12,5 +12,5 @@ urlpatterns = [
     path('create_report/<int:book_id>', views.create_report, name='create_report'),
     path('create_memo/<int:book_id>', views.create_memo, name='create_memo'),
     path('rating/<int:book_id>', views.rating, name='rating'),
-    path('report/del/<int:report_id>', views.report_del, name='report_del'),
+    path('detail_opened_report/<int:report_id>', views.detail_opened_report, name='detail_opened_report'),
 ]
