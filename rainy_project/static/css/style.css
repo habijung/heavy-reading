@@ -1,6 +1,7 @@
 /* font import */
 @import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
 
 /* common part */
 a {
@@ -101,6 +102,7 @@ h2 {
 
 #booklist > p {
     margin-top: 1%;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 #booklist-title::before {

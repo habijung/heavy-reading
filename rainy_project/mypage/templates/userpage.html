@@ -57,6 +57,16 @@
         <div id="my_memo" OnClick="location.href='{% url 'my_memo' %}'">
             <h2>메모</h2>
         </div>
+
+        <div>
+            <p>user_ratings : {{ user_ratings }}</p>
+            <p>user_ratings counts : {{ user_ratings.count }}</p>
+            <P>user_reports : {{ user_reports }}</P>
+            <P>user_reports counts : {{ user_reports.count }}</P>
+            <p>user_memos : {{user_memos }}</p>
+            <p>user_memos counts : {{user_memos.count }}</p>
+            <p>test</p>
+        </div>
     </div>
 
 </body>

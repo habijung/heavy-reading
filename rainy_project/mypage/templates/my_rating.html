@@ -37,6 +37,7 @@
                     <input type="hidden">
                 </form>
             {% else %}
+                <a class="user-login-box" href="{% url 'notice' %}">공지사항</a>
                 <a class="user-login-box" href="{% url 'signup' %}">회원가입</a>
                 <a class="user-login-box" href="{% url 'login' %}">로그인</a>
             {% endif %}
@@ -47,16 +48,13 @@
     </div>
 
     <div class="content">
-
         {% for rating in ratings %}
             <div id="booklist" OnClick="location.href='{% url 'detail' rating.book.id %}'">
                 <img src="{{ rating.book.cover_thumbnail.url }}" alt="cover">
-                <p> {{rating.book.title}} </p>
-                <p> <img src="{% static 'img/star_icon.png' %}" alt="star_icon" width="16px" height="16px"> {{rating.grade}} </p>
+                <p id="rating-book-title"> {{rating.book.title}} </p>
+                <p> <img src="{% static 'img/star_icon.png' %}" alt="star_icon" width="16px" height="16px"> {{rating.grade | floatformat:1}} </p>
             </div>
         {% endfor %}
     </div>
-
 </body>
-
 </html>
