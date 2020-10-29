@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="stylesheet" href="{% static 'mypage/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
     <title>진중한 독서</title>
 
     <!-- Bootstrap core CSS -->
@@ -22,8 +23,50 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="{% static 'js/jquery.min.js' %}"></script>
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 </head>
 <body>
+    <!--
+    <header>
+        <nav>
+            <ul>
+                <li><a class="menu-title" href="#">진중한 독서</a></li>
+
+                <li><a class="menu-right" href="#">로그아웃</a></li>
+                <li><a class="menu-right" href="#">공지사항</a></li>
+                <li><a class="menu-right" href="#">마이페이지</a></li>
+                <li><a class="menu-user" href="#">{{user.username}} 님, 안녕하세요!</a></li>
+            </ul>
+        </nav>
+    </header>
+    -->
+    <header>
+        <nav>
+            <ul>
+                <li><a class="menu-title" href="{% url 'main' %}">진중한 독서</a></li>
+
+                {% if user.is_authenticated %}
+                    <li><a class="menu-right" href="javascript:{document.getElementById('logout').submit()}">로그아웃</a></li>
+                    <li><a class="menu-right" href="{% url 'notice' %}">공지사항</a></li>
+                    <li><a class="menu-right" href="{% url 'users' %}">마이페이지</a></li>
+                    <li><a class="menu-user">{{user.username}} 님, 안녕하세요!</a></li>
+                    <form id="logout" method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <input type="hidden">
+                    </form>
+
+                {% else %}
+                    <li><a class="menu-right" href="{% url 'login' %}">로그인</a></li>
+                    <li><a class="menu-right" href="{% url 'signup' %}">회원가입</a></li>
+                    <li><a class="menu-right" href="{% url 'notice' %}">공지사항</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <!--
     <div class="header">
         <div class="header-login">
             {% if user.is_authenticated %}
@@ -46,6 +89,7 @@
         <h1><a href="{% url 'main' %}">진중한 독서</a></h1>
         <h2>마이페이지</h2>
     </div>
+    -->
 
     <div class="content">
         <p id="my-activity">나의 활동</p>

@@ -1,0 +1,89 @@
+/* font import */
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+
+/* menu navigation part */
+body {
+    margin: 0;
+    padding: 0;
+    padding-top: 50px;
+}
+
+header {
+    margin: 0;
+    padding: 0;
+    background-color: #FAFAFA;
+    border-bottom: 1px solid #E0E0E0;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+header li {
+    list-style: none;
+    line-height: 50px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* menu box part */
+header .menu-title {
+    float: left;
+    display: block;
+    text-decoration: none;
+    width: 170px;
+
+    color: #000000;
+    font-family: 'Gugi', cursive;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header .menu-right {
+    float: right;
+    display: block;
+    text-decoration: none;
+    width: 90px;
+
+    color: #000000;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+header .menu-user {
+    float: right;
+    display: block;
+    text-decoration: none;
+    width: 150px;
+
+    color: #000000;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* menu box hover part */
+header .menu-title:hover {
+    color: #444444;
+}
+
+header .menu-right:hover {
+    color: #444444;
+}
+
+/*
+header .menu-user:hover {
+    color: #444444;
+}
+*/
