@@ -41,6 +41,13 @@ h2 {
     text-align: center;
 }
 
+h3 {
+    font-size: 23px;
+    font-family: 'Gugi', cursive;
+    display: block;
+    text-align: center;
+}
+
 .header-searching {
     text-align: center;
 }
