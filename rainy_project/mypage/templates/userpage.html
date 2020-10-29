@@ -47,28 +47,24 @@
         <h2>마이페이지</h2>
     </div>
 
-    <div class="my_content">
-        <div id="my_rating" OnClick="location.href='{% url 'my_rating' %}'">
-            <h2>평점</h2>
-        </div>
-        <div id="my_report" OnClick="location.href='{% url 'my_report' %}'">
-            <h2>독후감</h2>
-        </div>
-        <div id="my_memo" OnClick="location.href='{% url 'my_memo' %}'">
-            <h2>메모</h2>
+    <div class="content">
+        <p id="my-activity">나의 활동</p>
+
+        <div class="my-act-box" id="my-rating-box" OnClick="location.href='{% url 'my_rating' %}'">
+            <p class="my-box-title">평점</p>
+            <p class="my-box-count">&#x2B50 {{user_ratings.count}}</p>
         </div>
 
-        <div>
-            <p>user_ratings : {{ user_ratings }}</p>
-            <p>user_ratings counts : {{ user_ratings.count }}</p>
-            <P>user_reports : {{ user_reports }}</P>
-            <P>user_reports counts : {{ user_reports.count }}</P>
-            <p>user_memos : {{user_memos }}</p>
-            <p>user_memos counts : {{user_memos.count }}</p>
-            <p>test</p>
+        <div class="my-act-box" id="my-report-box" OnClick="location.href='{% url 'my_report' %}'">
+            <p class="my-box-title">독후감</p>
+            <p class="my-box-count">&#x1F4DD {{user_reports.count}}</p>
+        </div>
+
+        <div class="my-act-box" id="my-memo-box" OnClick="location.href='{% url 'my_memo' %}'">
+            <p class="my-box-title">메모</p>
+            <p class="my-box-count">&#x1F516 {{user_memos.count}}</p>
         </div>
     </div>
-
 </body>
 
 </html>
