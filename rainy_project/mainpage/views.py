@@ -1,10 +1,11 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import Book, Report, Rating, Memo
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
+from .models import Book, Report, Rating, Memo, Survey
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.utils import timezone
 from decimal import Decimal
 from django.views.decorators.csrf import csrf_exempt
 from .forms import MemoForm
+from django.contrib import messages
 
 def main(request):
     sort = request.GET.get('sort','')
@@ -57,7 +58,8 @@ def detail(request, book_id):
     page = int(request.GET.get('p', 1))
     paginator = Paginator(opened_report, 10)
     reports = paginator.get_page(page)
-    return render(request, 'detail.html', {'book':book_info, 'reports':reports})
+    my_grade = Rating.objects.get(book=book_info, user=request.user)
+    return render(request, 'detail.html', {'book':book_info, 'reports':reports, 'my_grade':my_grade})
 
 def detail_opened_report(request, report_id):
     report = get_object_or_404(Report, pk=report_id)
@@ -173,3 +175,30 @@ def rating(request, book_id):
     book.save()
 
     return redirect('/detail/' + str(book_id))
+
+def survey(request):
+    return render(request, "survey_form.html")
+
+def submit_survey(request):
+    title = request.POST['title']
+    author = request.POST['author']
+    try:
+        survey = Survey.objects.get(title=title, author=author)
+        user = survey.user.all()
+        if request.user in user:
+            messages.error(request, "이미 신청하신 책입니다.")
+        else:
+            survey.count = survey.count + 1
+            survey.user.add(request.user)
+            survey.save()
+            messages.success(request, "신청되었습니다.")
+    except Survey.DoesNotExist:
+        survey = Survey()
+        survey.title = title
+        survey.author = author
+        survey.count = 1
+        survey.save()
+        survey.user.add(request.user)
+        messages.success(request, "신청되었습니다.")
+
+    return redirect('/survey_form')

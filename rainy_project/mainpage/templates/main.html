@@ -53,6 +53,11 @@
                 <input class="searching-bt" type="submit">
             </form>
         </div>
+        {% if user.is_authenticated %}
+        <div class="survey">
+            <p id="goto_survey" onclick="showPopup()">찾으시는 책이 없으세요?</p>
+        </div>
+        {% endif %}
 
         <div class="header-sorting">
             <select id="sort" onchange="location = this.value;">
@@ -83,6 +88,11 @@
 </body>
 
 <script type="text/javascript">
+
+    function showPopup() {
+        window.open("survey_form", "survey", "width=400, height=300, left=750, top=300")
+    }
+
     var token = $('input[name="csrfmiddlewaretoken"]').prop('value');
     $(window).scroll(function() {
         var scrollHeight = $(window).scrollTop() + $(window).height();

@@ -13,4 +13,6 @@ urlpatterns = [
     path('create_memo/<int:book_id>', views.create_memo, name='create_memo'),
     path('rating/<int:book_id>', views.rating, name='rating'),
     path('detail_opened_report/<int:report_id>', views.detail_opened_report, name='detail_opened_report'),
+    path('survey_form/', views.survey, name='survey'),
+    path('submit_survey/', views.submit_survey, name='submit_survey'),
 ]

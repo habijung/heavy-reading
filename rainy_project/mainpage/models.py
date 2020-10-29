@@ -51,3 +51,12 @@ class Memo(models.Model):
 
     def __str__(self):
         return self.book.title + '_' + self.user.username + str(self.page)
+
+class Survey(models.Model):
+    title = models.CharField(max_length=200)
+    author = models.CharField(max_length=50)
+    user = models.ManyToManyField(User)
+    count = models.SmallIntegerField(default=0)
+
+    def __str__(self):
+        return self.author + '-' + self.title

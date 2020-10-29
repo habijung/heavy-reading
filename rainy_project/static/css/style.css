@@ -58,7 +58,7 @@ h2 {
 
 .header-sorting {
     text-align: right;
-    margin-right: 100px;
+    display: inline-block;
 }
 
 /* content part */
@@ -68,6 +68,18 @@ h2 {
     width: 80%;
     margin: 0 auto;
     text-align: center;
+}
+
+/* main.html survey part */
+
+.survey {
+    width: 87%;
+    display: inline-block;
+}
+
+#goto_survey {
+    cursor: pointer;
+    font-family: 'Jua', sans-serif;
 }
 
 /* main.html > booklist part */
@@ -113,6 +125,11 @@ h2 {
 }
 
 /* detail.html > book part */
+
+.grade {
+    height: 50px;
+}
+
 #book > img{
     margin-bottom: 2%;
 }
@@ -317,3 +334,5 @@ h2 {
     height: 30px;
     font-size: 16px;
 }
+
+/* survey_form.html */
