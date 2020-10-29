@@ -3,10 +3,6 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from .models import Profile
 
-# Blank page
-def index(request):
-    msg = "accounts page."
-    return render(request, 'accounts/index.html', {'message': msg})
 
 # Sign Up
 def signup(request):

@@ -9,37 +9,12 @@ a {
     color: black;
 }
 
-
 /* header part */
 .header {
     width: 70%;
     padding-top: 10px;
     margin: 0 auto;
     margin-bottom: 1%;
-}
-
-.header-login {
-    display: block;
-    text-align: right;
-}
-
-.user-login-box {
-    text-align: center;
-    padding-right: 10px;
-}
-
-h1 {
-    font-size: 60px;
-    font-family: 'Gugi', cursive;
-    display: block;
-    text-align: center;
-}
-
-h2 {
-    font-size: 40px;
-    font-family: 'Gugi', cursive;
-    display: block;
-    text-align: center;
 }
 
 .header-searching {

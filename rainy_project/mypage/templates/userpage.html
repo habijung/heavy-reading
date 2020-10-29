@@ -23,25 +23,8 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="{% static 'js/jquery.min.js' %}"></script>
-    <!--[if lt IE 9]>
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
 </head>
 <body>
-    <!--
-    <header>
-        <nav>
-            <ul>
-                <li><a class="menu-title" href="#">진중한 독서</a></li>
-
-                <li><a class="menu-right" href="#">로그아웃</a></li>
-                <li><a class="menu-right" href="#">공지사항</a></li>
-                <li><a class="menu-right" href="#">마이페이지</a></li>
-                <li><a class="menu-user" href="#">{{user.username}} 님, 안녕하세요!</a></li>
-            </ul>
-        </nav>
-    </header>
-    -->
     <header>
         <nav>
             <ul>
@@ -52,6 +35,7 @@
                     <li><a class="menu-right" href="{% url 'notice' %}">공지사항</a></li>
                     <li><a class="menu-right" href="{% url 'users' %}">마이페이지</a></li>
                     <li><a class="menu-user">{{user.username}} 님, 안녕하세요!</a></li>
+                    
                     <form id="logout" method="POST" action="{% url 'logout' %}">
                         {% csrf_token %}
                         <input type="hidden">
@@ -65,31 +49,6 @@
             </ul>
         </nav>
     </header>
-
-    <!--
-    <div class="header">
-        <div class="header-login">
-            {% if user.is_authenticated %}
-                <a class="user-login-box">{{ user.username }} 님, 안녕하세요!</a>
-                <a class="user-login-box" href="{% url 'notice' %}">공지사항</a>
-                <a class="user-login-box" href="{% url 'users' %}">마이페이지</a>
-                <a class="user-login-box" href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
-                
-                <form id="logout" method="POST" action="{% url 'logout' %}">
-                    {% csrf_token %}
-                    <input type="hidden">
-                </form>
-            {% else %}
-                <a class="user-login-box" href="{% url 'notice' %}">공지사항</a>
-                <a class="user-login-box" href="{% url 'signup' %}">회원가입</a>
-                <a class="user-login-box" href="{% url 'login' %}">로그인</a>
-            {% endif %}
-        </div>
-
-        <h1><a href="{% url 'main' %}">진중한 독서</a></h1>
-        <h2>마이페이지</h2>
-    </div>
-    -->
 
     <div class="content">
         <p id="my-activity">나의 활동</p>
