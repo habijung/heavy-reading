@@ -65,44 +65,44 @@ $ pip3 install django==2.2
 # File Tree
 ```bash
 WEB_HeavyReading_Rainy
-    ├── project_docs
-    │   └── license.md
+    ├── project_docs                // project description files
     ├── rainy_project
-    │   ├── accounts                /* [Django App] accounts */
+    │   ├── accounts                // [Django App] accounts
     │   │   ├── migrations
-    │   │   └── templates/accounts  /* accounts page html templates */
-    │   ├── mainpage                /* [Django App] mainpage */
+    │   │   └── templates/accounts  // accounts page html templates
+    │   ├── mainpage                // [Django App] mainpage
     │   │   ├── migrations
-    │   │   └── templates           /* mainpage page html templates */
-    │   ├── media                   /* img data of db */
+    │   │   └── templates           // mainpage page html templates
+    │   ├── media                   // img data of db
     │   │   ├── CACHE
     │   │   └── images
-    │   ├── mypage                  /* [Django App] mypage */
+    │   ├── mypage                  // [Django App] mypage
     │   │   ├── migrations
-    │   │   └── templates           /* mypage page html templates */
-    │   ├── notice                  /* notice django app */
+    │   │   └── templates           // mypage page html templates
+    │   ├── notice                  // notice django app
     │   │   ├── migrations
-    │   │   └── templates           /* notice page html templates */
-    │   ├── rainy                   /* [Django Project] */
-    │   │   ├── settings.py         /* project setting file */
-    │   │   └── urls.py             /* url patterns file */
-    │   ├── static                  /* static loading files */
-    │   │   ├── accounts/css        /* accounts stylesheet */
-    │   │   ├── admin               /* admin manage files */
-    │   │   ├── css                 /* common & mainpage stylesheet */
-    │   │   ├── img                 /* static image files */
-    │   │   ├── js                  /* script files */
-    │   │   ├── mypage/css          /* mypage stylesheet */
-    │   │   ├── notice/css          /* notice stylesheet */
-    │   │   └── survey/css          /* survey form stylesheet */
+    │   │   └── templates           // notice page html templates
+    │   ├── rainy                   // [Django Project]
+    │   │   ├── settings.py         // project setting file
+    │   │   └── urls.py             // url patterns file
+    │   ├── static                  // static loading files
+    │   │   ├── accounts/css        // accounts stylesheet
+    │   │   ├── admin               // admin manage files
+    │   │   ├── css                 // common & mainpage stylesheet
+    │   │   ├── img                 // static image files
+    │   │   ├── js                  // script files
+    │   │   ├── mypage/css          // mypage stylesheet
+    │   │   ├── notice/css          // notice stylesheet
+    │   │   └── survey/css          // survey form stylesheet
     │   ├── staticfiles
-    │   ├── db.sqlite3              /* database */
-    │   └── manage.py               /* Django manage file */
+    │   ├── db.sqlite3              // database
+    │   └── manage.py               // Django manage file
     ├── .gitignore
+    ├── LICENSE.md
     └── README.md
 ```
 
 
 <!-- 저작권 및 사용권 정보 -->
 # License
-[MIT License](./LICENSE)
+[MIT License](./LICENSE.md)
