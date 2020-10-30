@@ -20,7 +20,7 @@
 
 <!-- 프로젝트 시연 동영상 -->
 # 시연 동영상
-<iframe width="640" height="360" src="https://youtu.be/S-thTTqefls" frameborder="0" gesture="media" allowfullscreen=""></iframe>
+[![Video](https://youtu.be/S-thTTqefls/0.jpg)](https://youtu.be/S-thTTqefls)
 
 <!-- 컴퓨터 구성 / 필수 조건 안내 -->
 # Prerequisites
