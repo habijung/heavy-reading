@@ -53,6 +53,7 @@
         <form action="{% url 'my_report_delete' report.id %}" method="POST">
             {% csrf_token %}
             <input class="submit-margin-bt" type="submit" value="삭제">
+            <input class="submit-margin-bt" type="button" value="뒤로" onClick="location.href='{% url 'my_report' %}'">
         </form>
     </div>
 </body>

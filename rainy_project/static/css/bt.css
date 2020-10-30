@@ -70,3 +70,51 @@
 .writing-bt > a:hover {
     color: #000000;
 }
+
+.page-item {
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 5px;
+    padding: 5px 10px;
+    display: list-item;
+
+    
+    background-color: #009688;
+    border-style: none;
+    border-radius: 0.15rem;
+    cursor: pointer;
+}
+
+.page-item > a {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.page-item:hover {
+    background-color: #cacaca;
+}
+
+.page-item > a:hover {
+    color: #000000;
+}
+
+.page-item-none {
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 5px;
+    padding: 5px 10px;
+    display: list-item;
+
+    
+    background-color: #009688;
+    border-style: none;
+    border-radius: 0.15rem;
+    user-select: none;
+}
+
+.page-item-none > a {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    color: #FFFFFF;
+}
