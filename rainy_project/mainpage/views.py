@@ -131,21 +131,6 @@ def create_report(request, book_id):
         report.save()
 
         return redirect('/detail/' + str(book_id))
-        
-'''
-def create_memo(request, book_id):
-    if request.method == 'POST':
-        book = get_object_or_404(Book, pk=book_id)
-        form = MemoForm(request.POST, request.FILES)
-        if form.is_valid():
-            memo = Memo(**form.cleaned_data)
-            memo.book = book
-            memo.pub_date = timezone.datetime.now()
-            memo.user = request.user
-            memo.save()
-
-            return redirect('/detail/' + str(book_id))
-'''
 
 def create_memo(request, book_id):
     if request.method == 'POST':
