@@ -6,6 +6,7 @@ from decimal import Decimal
 from django.views.decorators.csrf import csrf_exempt
 from .forms import MemoForm
 from django.contrib import messages
+from django.http import JsonResponse
 
 def main(request):
     sort = request.GET.get('sort','')
@@ -192,7 +193,7 @@ def rating(request, book_id):
         
     book.save()
 
-    return redirect('/detail/' + str(book_id))
+    return JsonResponse({'grade':round(Decimal(book.grade), 1), 'my_grade':rating.grade, 'count':book.count})
 
 def survey(request):
     return render(request, "survey_form.html")
