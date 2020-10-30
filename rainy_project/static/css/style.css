@@ -1,6 +1,7 @@
 /* font import */
 @import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
 
 /* common part */
 a {
@@ -8,44 +9,12 @@ a {
     color: black;
 }
 
-
 /* header part */
 .header {
     width: 70%;
     padding-top: 10px;
     margin: 0 auto;
     margin-bottom: 1%;
-}
-
-.header-login {
-    display: block;
-    text-align: right;
-}
-
-.user-login-box {
-    text-align: center;
-    padding-right: 10px;
-}
-
-h1 {
-    font-size: 60px;
-    font-family: 'Gugi', cursive;
-    display: block;
-    text-align: center;
-}
-
-h2 {
-    font-size: 40px;
-    font-family: 'Gugi', cursive;
-    display: block;
-    text-align: center;
-}
-
-h3 {
-    font-size: 23px;
-    font-family: 'Gugi', cursive;
-    display: block;
-    text-align: center;
 }
 
 .header-searching {
@@ -120,6 +89,7 @@ h3 {
 
 #booklist > p {
     margin-top: 1%;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 #booklist-title::before {

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="stylesheet" href="{% static 'mypage/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
     <title>진중한 독서</title>
 
     <!-- Bootstrap core CSS -->
@@ -24,41 +25,49 @@
     <script src="{% static 'js/jquery.min.js' %}"></script>
 </head>
 <body>
-    <div class="header">
-        <div class="header-login">
-            {% if user.is_authenticated %}
-                <a class="user-login-box">{{ user.username }} 님, 안녕하세요!</a>
-                <a class="user-login-box" href="{% url 'notice' %}">공지사항</a>
-                <a class="user-login-box" href="{% url 'users' %}">마이페이지</a>
-                <a class="user-login-box" href="javascript:{document.getElementById('logout').submit()}">로그아웃</a>
-                
-                <form id="logout" method="POST" action="{% url 'logout' %}">
-                    {% csrf_token %}
-                    <input type="hidden">
-                </form>
-            {% else %}
-                <a class="user-login-box" href="{% url 'notice' %}">공지사항</a>
-                <a class="user-login-box" href="{% url 'signup' %}">회원가입</a>
-                <a class="user-login-box" href="{% url 'login' %}">로그인</a>
-            {% endif %}
+    <header>
+        <nav>
+            <ul>
+                <li><a class="menu-title" href="{% url 'main' %}">진중한 독서</a></li>
+
+                {% if user.is_authenticated %}
+                    <li><a class="menu-right" href="javascript:{document.getElementById('logout').submit()}">로그아웃</a></li>
+                    <li><a class="menu-right" href="{% url 'notice' %}">공지사항</a></li>
+                    <li><a class="menu-right" href="{% url 'users' %}">마이페이지</a></li>
+                    <li><a class="menu-user">{{user.username}} 님, 안녕하세요!</a></li>
+                    
+                    <form id="logout" method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <input type="hidden">
+                    </form>
+
+                {% else %}
+                    <li><a class="menu-right" href="{% url 'login' %}">로그인</a></li>
+                    <li><a class="menu-right" href="{% url 'signup' %}">회원가입</a></li>
+                    <li><a class="menu-right" href="{% url 'notice' %}">공지사항</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+        <p id="my-activity">나의 활동</p>
+
+        <div class="my-act-box" id="my-rating-box" OnClick="location.href='{% url 'my_rating' %}'">
+            <p class="my-box-title">평점</p>
+            <p class="my-box-count">&#x2B50 {{user_ratings.count}}</p>
         </div>
 
-        <h1><a href="{% url 'main' %}">진중한 독서</a></h1>
-        <h2>마이페이지</h2>
+        <div class="my-act-box" id="my-report-box" OnClick="location.href='{% url 'my_report' %}'">
+            <p class="my-box-title">독후감</p>
+            <p class="my-box-count">&#x1F4DD {{user_reports.count}}</p>
+        </div>
+
+        <div class="my-act-box" id="my-memo-box" OnClick="location.href='{% url 'my_memo' %}'">
+            <p class="my-box-title">메모</p>
+            <p class="my-box-count">&#x1F516 {{user_memos.count}}</p>
+        </div>
     </div>
-
-    <div class="my_content">
-        <div id="my_rating" OnClick="location.href='{% url 'my_rating' %}'">
-            <h2>평점</h2>
-        </div>
-        <div id="my_report" OnClick="location.href='{% url 'my_report' %}'">
-            <h2>독후감</h2>
-        </div>
-        <div id="my_memo" OnClick="location.href='{% url 'my_memo' %}'">
-            <h2>메모</h2>
-        </div>
-    </div>
-
 </body>
 
 </html>
