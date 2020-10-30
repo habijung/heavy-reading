@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="stylesheet" href="{% static 'mypage/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bt.css' %}">
     <title>진중한 독서</title>
 </head>
 <body>
@@ -51,7 +52,7 @@
 
         <form action="{% url 'my_report_delete' report.id %}" method="POST">
             {% csrf_token %}
-            <input id="report-list-bt" type="submit" value="삭제">
+            <input class="submit-margin-bt" type="submit" value="삭제">
         </form>
     </div>
 </body>

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{% static 'css/rating.css' %}">
     <link rel="stylesheet" href="{% static 'css/creat.css' %}">
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bt.css' %}">
     <title>진중한 독서</title>
 </head>
 <body>
@@ -41,7 +42,7 @@
             <form id="searching-form" action="{% url 'search' %}" method="POST">
                 {% csrf_token %}
                 <input class="searching-bar" type="text" name="q" value="{{q}}">
-                <input class="searching-bt" type="submit" value="검색">
+                <input class="submit-bt" type="submit" value="검색">
             </form>
         </div>
     </div>
@@ -94,8 +95,8 @@
                 </tbody>
             </table>
 
-            <input class="report-submit-bt-none" type="submit" value="작성하기">
-            <input class="report-submit-bt-none" type="button" value="취소" onClick="location.href='{% url 'detail' book.id %}'">
+            <input class="submit-margin-bt" type="submit" value="작성">
+            <input class="submit-margin-bt" type="button" value="취소" onClick="location.href='{% url 'detail' book.id %}'">
         </form>
     </div>
 
@@ -126,8 +127,8 @@
                 </tbody>
             </table>
 
-            <input class="report-submit-bt-mod" type="submit" value="수정하기">
-            <input class="report-submit-bt-mod" type="button" value="취소" onClick="location.href='{% url 'detail' book.id %}'">
+            <input class="submit-margin-bt" type="submit" value="수정">
+            <input class="submit-margin-bt" type="button" value="취소" onClick="location.href='{% url 'detail' book.id %}'">
         </form>
     </div>
     {% endif %}

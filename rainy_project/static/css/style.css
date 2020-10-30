@@ -36,13 +36,15 @@ a {
 }
 
 .header-sorting {
-    text-align: right;
+    width: 80%;
+    height: 50px;
     display: inline-block;
 }
 
 #sort {
     height: 30px;
     font-weight: bold;
+    margin-top: 10px;
 }
 
 /* content part */
@@ -55,10 +57,9 @@ a {
 }
 
 /* main.html survey part */
-
 .survey {
-    width: 87%;
     display: inline-block;
+    text-align: right;
 }
 
 #goto_survey {

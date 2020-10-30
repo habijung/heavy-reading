@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="stylesheet" href="{% static 'notice/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bt.css' %}">
     <title>진중한 독서</title>
 </head>
 <body>
@@ -49,7 +50,7 @@
             </tbody>
         </table>
 
-        <input id="notice-list-bt" type="button" value="뒤로" onClick="location.href='{% url 'notice' %}'">
+        <input class="submit-margin-bt" type="button" value="뒤로" onClick="location.href='{% url 'notice' %}'">
     </div>
 </body>
 

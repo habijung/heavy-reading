@@ -3,7 +3,7 @@
 .submit-bt {
     text-align: center;
     vertical-align: middle;
-    width: 50px;
+    width: 55px;
     height: 30px;
     margin: 0 auto;
 
@@ -18,4 +18,55 @@
 
 .submit-bt:hover {
     background-color: #1c6bff;
+}
+
+.submit-margin-bt {
+    text-align: center;
+    vertical-align: middle;
+    width: 50px;
+    height: 30px;
+    margin: 0 10px;
+    margin-bottom: 30px;
+
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    background-color: #009688;
+    color: #FFFFFF;
+    border-style: none;
+    border-radius: 0.15rem;
+    cursor: pointer;
+}
+
+.submit-margin-bt:hover {
+    background-color: #cacaca;
+    color: #000000;
+}
+
+.writing-bt {
+    text-align: center;
+    vertical-align: middle;
+    height: 30px;
+    margin: 0 10px;
+    
+    background-color: #009688;
+    border-style: none;
+    border-radius: 0.15rem;
+    cursor: pointer;
+}
+
+.writing-bt > a {
+    width: 50px;
+    line-height: 30px;
+
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.writing-bt:hover {
+    background-color: #cacaca;
+}
+
+.writing-bt > a:hover {
+    color: #000000;
 }

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{% static 'css/rating.css' %}">
     <link rel="stylesheet" href="{% static 'css/creat.css' %}">
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bt.css' %}">
     <title>진중한 독서</title>
 </head>
 <body>
@@ -41,7 +42,7 @@
             <form id="searching-form" action="{% url 'search' %}" method="POST">
                 {% csrf_token %}
                 <input class="searching-bar" type="text" name="q" value="{{q}}">
-                <input class="searching-bt" type="submit" value="검색">
+                <input class="submit-bt" type="submit" value="검색">
             </form>
         </div>
     </div>

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bt.css' %}">
     <title>진중한 독서</title>
 </head>
 <body>
@@ -39,37 +40,37 @@
             {% csrf_token %}
             <table id="signup-info">
                 <tr class="signup-row">
-                    <th class="signup-header">* 회원 아이디</th>
-                    <td class="signup-input"><input type="text" name="username"></td>
+                    <th class="signup-header">&#x1F4CC 회원 아이디</th>
+                    <td class="signup-input"><input type="text" name="username" placeholder="최대 10자"></td>
                 </tr>
 
                 <tr class="signup-row">
-                    <th class="signup-header">* 비밀번호</th>
-                    <td class="signup-input"><input type="password" name="password"></td>
+                    <th class="signup-header">&#x1F4CC 비밀번호</th>
+                    <td class="signup-input"><input type="password" name="password" placeholder="최대 15자"></td>
                 </tr>
 
                 <tr class="signup-row">
-                    <th class="signup-header">* 비밀번호 확인</th>
-                    <td class="signup-input"><input type="password" name="confirm"></td>
+                    <th class="signup-header">&#x1F4CC 비밀번호 확인</th>
+                    <td class="signup-input"><input type="password" name="confirm" placeholder="비밀번호 확인"></td>
                 </tr>
 
                 <tr class="signup-row">
-                    <th class="signup-header">* 성</th>
-                    <td class="signup-input"><input type="text" name="first_name"></td>
+                    <th class="signup-header">&#x1F4CC 성</th>
+                    <td class="signup-input"><input type="text" name="first_name" placeholder="홍"></td>
                 </tr>
 
                 <tr class="signup-row">
-                    <th class="signup-header">* 이름</th>
-                    <td class="signup-input"><input type="text" name="last_name"></td>
+                    <th class="signup-header">&#x1F4CC 이름</th>
+                    <td class="signup-input"><input type="text" name="last_name" placeholder="길동"></td>
                 </tr>
 
                 <tr class="signup-row">
-                    <th class="signup-header">* 나라사랑 아이디</th>
-                    <td class="signup-input"><input type="text" name="cardname"> @narasarang.or.kr</td>
+                    <th class="signup-header">&#x1F4CC 나라사랑 아이디</th>
+                    <td class="signup-input"><input type="text" name="cardname" placeholder="1234567890"> @narasarang.or.kr</td>
                 </tr>
 
                 <tr class="signup-row">
-                    <th class="signup-header">* 소속</th>
+                    <th class="signup-header">&#x1F4CC 소속</th>
                     <td class="signup-input">
                         <select name="affiliation" size="1">
                             <option value='0'>선택</option>
@@ -84,8 +85,8 @@
             </table>
 
             <div class="signup-bt">
-                <input type="submit" value="회원가입">
-                <input type="reset" value="취소">
+                <input class="submit-bt" type="submit" value="확인">
+                <input class="submit-bt" type="reset" value="취소">
             </div>
         </form>
     </div>
