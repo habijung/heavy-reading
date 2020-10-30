@@ -1,13 +1,13 @@
 /* font import */
 @import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
 
 /* common part */
 a {
     text-decoration: none;
     color: black;
 }
-
 
 /* header part */
 .header {
@@ -17,55 +17,32 @@ a {
     margin-bottom: 1%;
 }
 
-.header-login {
-    display: block;
-    text-align: right;
-}
-
-.user-login-box {
-    text-align: center;
-    padding-right: 10px;
-}
-
-h1 {
-    font-size: 60px;
-    font-family: 'Gugi', cursive;
-    display: block;
-    text-align: center;
-}
-
-h2 {
-    font-size: 40px;
-    font-family: 'Gugi', cursive;
-    display: block;
-    text-align: center;
-}
-
-h3 {
-    font-size: 23px;
-    font-family: 'Gugi', cursive;
-    display: block;
-    text-align: center;
-}
-
 .header-searching {
     text-align: center;
 }
 
-.searching-bar {
-    height: 25px;
-    width: 200px;
-    margin: 0 15px 15px 30px;
+#searching-form {
+    margin: 0 auto;
+    width: 400px;
+    background-color: #f0f0f0;
+    border-radius: 3rem;
 }
 
-.searching-bt {
-    height: 30px;
+.searching-bar {
     vertical-align: middle;
+    height: 25px;
+    width: 200px;
+    margin: 15px 15px 15px 30px;
 }
 
 .header-sorting {
     text-align: right;
     display: inline-block;
+}
+
+#sort {
+    height: 30px;
+    font-weight: bold;
 }
 
 /* content part */
@@ -85,8 +62,14 @@ h3 {
 }
 
 #goto_survey {
+    width: 200px;
     cursor: pointer;
     font-family: 'Jua', sans-serif;
+    font-size: 18px;
+}
+
+#goto_survey:hover {
+    color: #555555;
 }
 
 /* main.html > booklist part */
@@ -96,6 +79,11 @@ h3 {
     cursor: pointer;
     width: 280px;
     text-align: center;
+}
+
+#booklist:hover {
+    background-color: #F0F0F0;
+    border-radius: 0.3rem;
 }
 
 #booklist::before {
@@ -120,6 +108,7 @@ h3 {
 
 #booklist > p {
     margin-top: 1%;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 #booklist-title::before {

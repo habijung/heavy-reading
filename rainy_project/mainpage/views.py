@@ -58,8 +58,14 @@ def detail(request, book_id):
     page = int(request.GET.get('p', 1))
     paginator = Paginator(opened_report, 10)
     reports = paginator.get_page(page)
-    my_grade = Rating.objects.get(book=book_info, user=request.user)
-    return render(request, 'detail.html', {'book':book_info, 'reports':reports, 'my_grade':my_grade})
+    if request.user.is_authenticated:
+        try:
+            my_grade = Rating.objects.get(book=book_info, user=request.user)
+            return render(request, 'detail.html', {'book':book_info, 'reports':reports, 'my_grade':my_grade.grade})
+        except Rating.DoesNotExist:
+            my_grade = 0
+            return render(request, 'detail.html', {'book':book_info, 'reports':reports, 'my_grade':my_grade})
+    return render(request, 'detail.html', {'book':book_info, 'reports':reports})
 
 def detail_opened_report(request, report_id):
     report = get_object_or_404(Report, pk=report_id)
@@ -84,12 +90,24 @@ def create_report_page(request, book_id):
         report = Report.objects.get(book=book, user=request.user)
     except Report.DoesNotExist:
         report = -1
-    return render(request, 'create_report_page.html', {'book':book, 'report':report})
+
+    try:
+        my_grade = Rating.objects.get(book=book, user=request.user)
+        return render(request, 'create_report_page.html', {'book':book, 'report':report, 'my_grade':my_grade.grade})
+    except Rating.DoesNotExist:
+        my_grade = 0
+        return render(request, 'create_report_page.html', {'book':book, 'report':report, 'my_grade':my_grade})
 
 def create_memo_page(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
     form = MemoForm()
-    return render(request, 'create_memo_page.html', {'book':book, 'form':form})
+
+    try:
+        my_grade = Rating.objects.get(book=book, user=request.user)
+        return render(request, 'create_report_page.html', {'book':book, 'form':form, 'my_grade':my_grade.grade})
+    except Rating.DoesNotExist:
+        my_grade = 0
+        return render(request, 'create_report_page.html', {'book':book, 'form':form, 'my_grade':my_grade})
 
 def create_report(request, book_id):
     if request.method == "POST":

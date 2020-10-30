@@ -6,7 +6,12 @@ import math
 # Create your views here.
 
 def users(request):
-    return render(request, 'userpage.html')
+    user_ratings = Rating.objects.filter(user=request.user)
+    user_reports = Report.objects.filter(user=request.user)
+    user_memos = Memo.objects.filter(user=request.user)
+    return render(request, 'userpage.html', {'user_ratings':user_ratings,
+                                             'user_reports':user_reports,
+                                             'user_memos':user_memos})
 
 def my_rating(request):
     ratings = Rating.objects.filter(user=request.user)
