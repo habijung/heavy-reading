@@ -39,8 +39,8 @@
         <div id="login-form">
             <form method="POST" action="{% url 'login' %}">
                 {% csrf_token %}
-                <input class="login-box" type="text" name="username" placeholder=" ID">
-                <input class="login-box" type="password" name="password" placeholder=" PASSWORD">
+                <input class="login-box" type="text" name="username" placeholder="ID">
+                <input class="login-box" type="password" name="password" placeholder="PASSWORD">
                 <input class="submit-bt" type="submit" value="로그인">
             </form>
         </div>
