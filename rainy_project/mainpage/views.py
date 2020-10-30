@@ -58,8 +58,9 @@ def detail(request, book_id):
     page = int(request.GET.get('p', 1))
     paginator = Paginator(opened_report, 10)
     reports = paginator.get_page(page)
-    my_grade = Rating.objects.get(book=book_info, user=request.user)
-    return render(request, 'detail.html', {'book':book_info, 'reports':reports, 'my_grade':my_grade})
+    # my_grade = Rating.objects.get(book=book_info, user=request.user)
+    # return render(request, 'detail.html', {'book':book_info, 'reports':reports, 'my_grade':my_grade})
+    return render(request, 'detail.html', {'book':book_info, 'reports':reports})
 
 def detail_opened_report(request, report_id):
     report = get_object_or_404(Report, pk=report_id)

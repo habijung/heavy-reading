@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bt.css' %}">
     <title>진중한 독서</title>
 
     <!-- Bootstrap core CSS -->
@@ -55,7 +56,7 @@
             <form id="searching-form" action="{% url 'search' %}" method="POST">
                 {% csrf_token %}
                 <input class="searching-bar" type="text" name="q" value="{{q}}">
-                <input class="searching-bt" type="submit" value="검색">
+                <input class="submit-bt" type="submit" value="검색">
             </form>
         </div>
         {% if user.is_authenticated %}

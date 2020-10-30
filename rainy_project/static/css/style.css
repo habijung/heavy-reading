@@ -21,20 +21,28 @@ a {
     text-align: center;
 }
 
-.searching-bar {
-    height: 25px;
-    width: 200px;
-    margin: 0 15px 15px 30px;
+#searching-form {
+    margin: 0 auto;
+    width: 400px;
+    background-color: #f0f0f0;
+    border-radius: 3rem;
 }
 
-.searching-bt {
-    height: 30px;
+.searching-bar {
     vertical-align: middle;
+    height: 25px;
+    width: 200px;
+    margin: 15px 15px 15px 30px;
 }
 
 .header-sorting {
     text-align: right;
     display: inline-block;
+}
+
+#sort {
+    height: 30px;
+    font-weight: bold;
 }
 
 /* content part */
@@ -54,8 +62,14 @@ a {
 }
 
 #goto_survey {
+    width: 200px;
     cursor: pointer;
     font-family: 'Jua', sans-serif;
+    font-size: 18px;
+}
+
+#goto_survey:hover {
+    color: #555555;
 }
 
 /* main.html > booklist part */
@@ -65,6 +79,11 @@ a {
     cursor: pointer;
     width: 280px;
     text-align: center;
+}
+
+#booklist:hover {
+    background-color: #F0F0F0;
+    border-radius: 0.3rem;
 }
 
 #booklist::before {

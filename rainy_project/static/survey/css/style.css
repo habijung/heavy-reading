@@ -1,0 +1,62 @@
+/* font import */
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+
+/* header part */
+.survey-header {
+    text-align: center;
+}
+
+h3 {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 30px auto 20px auto;
+}
+
+#survey-message {
+    display: block;
+    margin: 10px auto;
+    width: 250px;
+    height: 30px;
+    line-height: 30px;
+
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    background-color: #F0F0F0;
+    border-radius: 0.3rem;
+}
+
+/* survey part */
+.survey-content {
+    text-align: center;
+}
+
+.survey-list-header {
+    display: block;
+    text-align: center;
+}
+
+.survey-list {
+    display: inline-block;
+    text-align: right;
+    width: 50px;
+    line-height: 40px;
+    padding-right: 40px;
+    margin: 10px auto;
+
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 18px;
+}
+
+.survey-text {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    width: 120px;
+    height: 18px;
+    margin-right: 10px;
+}
+
+#survey-author {
+    margin-bottom: 20px;
+}

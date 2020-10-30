@@ -5,21 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bt.css' %}">
+    <link rel="stylesheet" href="{% static 'survey/css/style.css' %}">
     <title>진중한 독서</title>
 </head>
 <body>
-    <h3>읽고싶은 책을 신청하세요!</h3>
-    <div>
+    <div class="survey-header">
+        <h3>읽고 싶은 책을 신청하세요!</h3>
+
+        {% for message in messages %}
+        <p id="survey-message">{{message.message}}</p>
+        {% endfor %}
+    </div>
+    
+    <div class="survey-content">
         <form action="{% url 'submit_survey' %}" method="POST">
             {% csrf_token %}
-            <p>책 제목 : </p><input class="searching-bar" type="text" name="title">
-            <p>저자 : </p><input class="searching-bar" type="text" name="author">
-            <input class="searching-bt" type="submit">
+            <div class="survey-list-header">
+                <p class="survey-list">제목</p>
+                <input class="survey-text" type="text" name="title">
+            </div>
+            <div id="survey-author" class="survey-list-header">
+                <p class="survey-list">저자</p>
+                <input class="survey-text" type="text" name="author">
+            </div>
+            <input class="submit-bt" type="submit">
         </form>
     </div>
-    {% for message in messages %}
-        <p>{{message.message}}</p>
-    {% endfor %}
+    
 </body>
-
 </html>
