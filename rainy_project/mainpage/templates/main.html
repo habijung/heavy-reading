@@ -59,11 +59,6 @@
                 <input class="submit-bt" type="submit" value="검색">
             </form>
         </div>
-        {% if user.is_authenticated %}
-        <div class="survey">
-            <p id="goto_survey" onclick="showPopup()">찾으시는 책이 없으세요?</p>
-        </div>
-        {% endif %}
 
         <div class="header-sorting">
             <select id="sort" onchange="location = this.value;">
@@ -72,6 +67,13 @@
                 <option class="grade" value="?sort=grade">평점순</option>
             </select>
         </div>
+
+        {% if user.is_authenticated %}
+        <div class="survey">
+            <p id="goto_survey" onclick="showPopup()">찾으시는 책이 없으세요?</p>
+        </div>
+        {% endif %}
+
     </div>
 
     <div class="content">

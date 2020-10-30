@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bt.css' %}">
     <title>진중한 독서</title>
 </head>
 <body>
@@ -38,9 +39,9 @@
         <div id="login-form">
             <form method="POST" action="{% url 'login' %}">
                 {% csrf_token %}
-                <input class="login-box" type="text" name="username" placeholder="ID">
-                <input class="login-box" type="password" name="password" placeholder="PASSWORD">
-                <input type="submit" value="로그인">
+                <input class="login-box" type="text" name="username" placeholder=" ID">
+                <input class="login-box" type="password" name="password" placeholder=" PASSWORD">
+                <input class="submit-bt" type="submit" value="로그인">
             </form>
         </div>
     </div>

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="stylesheet" href="{% static 'notice/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bt.css' %}">
     <title>진중한 독서</title>
 
     <!--
@@ -69,8 +70,8 @@
                         <a class="page-link" href="#">이전으로</a>
                     </li>
                     {% endif %}
-                    <li class="page-item">
-                        <a class="page-link" href="#">{{notices.number}}/{{notices.paginator.num_pages}}</a>
+                    <li class="page-item-none">
+                        <a class="page-link">{{notices.number}}/{{notices.paginator.num_pages}}</a>
                     </li>
                     {% if notices.has_next %}
                     <li class="page-item">

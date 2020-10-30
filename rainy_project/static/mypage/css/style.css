@@ -168,13 +168,17 @@ h2 {
 }
 
 /* my_rating.html */
-
 #booklist {
     float: left;
     margin: 0 2% 4% 4%;
     cursor: pointer;
     width: 280px;
     text-align: center;
+}
+
+#booklist:hover {
+    background-color: #F0F0F0;
+    border-radius: 0.3rem;
 }
 
 #booklist::before {

@@ -67,7 +67,9 @@ header .menu-user {
     float: right;
     display: block;
     text-decoration: none;
-    width: 150px;
+    text-align: right;
+    width: 300px;
+    padding-right: 20px;
 
     color: #000000;
     font-family: 'Noto Sans KR', sans-serif;

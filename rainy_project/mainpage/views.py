@@ -105,10 +105,10 @@ def create_memo_page(request, book_id):
 
     try:
         my_grade = Rating.objects.get(book=book, user=request.user)
-        return render(request, 'create_report_page.html', {'book':book, 'form':form, 'my_grade':my_grade.grade})
+        return render(request, 'create_memo_page.html', {'book':book, 'form':form, 'my_grade':my_grade.grade})
     except Rating.DoesNotExist:
         my_grade = 0
-        return render(request, 'create_report_page.html', {'book':book, 'form':form, 'my_grade':my_grade})
+        return render(request, 'create_memo_page.html', {'book':book, 'form':form, 'my_grade':my_grade})
 
 def create_report(request, book_id):
     if request.method == "POST":

@@ -1,6 +1,7 @@
 /* font import */
 @import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
 
 /* common part */
 a {
@@ -126,14 +127,6 @@ h2 {
     margin: 0 auto;
     margin-bottom: 3%;
     padding-left: 0;
-    border-radius: 0.25rem;
-}
-
-.page-item {
-    margin: 0 5px;
-    padding: 5px 10px;
-    display: list-item;
-    border: 1px solid #b6b6b6;
     border-radius: 0.25rem;
 }
 
