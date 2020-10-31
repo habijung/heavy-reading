@@ -36,19 +36,19 @@ def my_memo(request):
     cols = range(0, 4)
 
     memos_matrix = []
+    it = iter(memos)
     count = 0
     chk = 0
     for col in cols:
         memos_matrix.append([])
         for row in rows:
-            memos_matrix[col].append(memos[count])
+            memos_matrix[col].append(it.__next__())
             count = count + 1
             if count == memos.count() :
                 chk = 1
                 break
         if chk == 1:
             break
-
     
     return render(request, 'my_memo.html', {'memos':memos_matrix, 'rows':rows, 'cols':cols})
 
