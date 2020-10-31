@@ -10,11 +10,10 @@ from django.http import JsonResponse
 
 def main(request):
     sort = request.GET.get('sort','')
-
     if sort == 'reverse' :
         books = Book.objects.all().order_by('pub_date')
     elif sort == 'grade' :
-        books = Book.objects.order_by('-grade', '-count', '-pub_date')
+        books = Book.objects.all().order_by('-grade', '-count', '-pub_date')
     else :
         books = Book.objects.all().order_by('-pub_date')
     paginator = Paginator(books, 12)
@@ -31,12 +30,11 @@ def main(request):
 
 @csrf_exempt
 def main_ajax(request):
-    sort = request.GET.get('sort','')
-
-    if sort == 'reverse' :
+    sort = request.POST.get('sort','')
+    if sort == '?sort=reverse' :
         books = Book.objects.all().order_by('pub_date')
-    elif sort == 'grade' :
-        books = Book.objects.order_by('-grade', '-count', '-pub_date')
+    elif sort == '?sort=grade' :
+        books = Book.objects.all().order_by('-grade', '-count', '-pub_date')
     else :
         books = Book.objects.all().order_by('-pub_date')
 

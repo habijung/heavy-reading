@@ -108,31 +108,24 @@
 
         if(scrollHeight + 300 >= documentHeight) {
             var page = $("#page").val();
-            callMorePostAjax(page);
+            var sort = $("#sort").val();
+            callMorePostAjax(page, sort);
             $("#page").val(parseInt(page)+1);
         }
     });
 
-    function callMorePostAjax(page) {
+    function callMorePostAjax(page, sort) {
         $.ajax({
             type: 'POST',
             url: "{% url 'main_ajax' %}",
             data: {
                 'page': page,
+                'sort': sort,
                 'csrfmiddlewaretoken': token,
             },
             success: addMorePostAjax,
             dataType: 'html',
-        },
-        {
-            type: 'GET',
-            url: "{% url 'main_ajax' %}",
-            data: {
-                'sort': $("#sort").val(),
-                'csrfmiddlewaretoken': token,
-            },
-            success: addMorePostAjax,
-        });
+        },);
     }
 
     function addMorePostAjax(data, textStatus, jqXHR) {
