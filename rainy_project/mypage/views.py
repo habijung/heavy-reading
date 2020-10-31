@@ -36,12 +36,13 @@ def my_memo(request):
     cols = range(0, 4)
 
     memos_matrix = []
+    for col in cols:
+        memos_matrix.append([])
     it = iter(memos)
     count = 0
     chk = 0
-    for col in cols:
-        memos_matrix.append([])
-        for row in rows:
+    for row in rows:
+        for col in cols:
             memos_matrix[col].append(it.__next__())
             count = count + 1
             if count == memos.count() :
