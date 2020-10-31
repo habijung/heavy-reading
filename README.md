@@ -38,6 +38,7 @@ Chrome | 86 (64-bit)
 
 <!-- 설치 안내 -->
 # Installation Process
+- **Create Codespace**로 **new codespace**를 생성하고 해당 PC에서 설치 및 실행
 ```bash
 $ git clone https://github.com/osamhack2020/WEB_HeavyReading_Rainy.git
 $ cd WEB_HeavyReading_Rainy/rainy_project
