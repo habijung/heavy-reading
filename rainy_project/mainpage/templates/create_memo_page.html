@@ -57,8 +57,8 @@
         <div class="container" style="margin-top: 35px;">
             <div class="grade">
                 <p>평점 : </p>
-                <p>{{book.grade}}</p>
-                <p>({{book.count}}명)</p>
+                <p id="book_grade">{{book.grade}}</p>
+                <p id="book_count">({{book.count}}명)</p>
             </div>
 
             <div class="ratings">
@@ -68,7 +68,7 @@
                 <input type="radio" name="star" id="rating" value="4">
                 <input type="radio" name="star" id="rating" value="5">
             </div>
-            <p>({{my_grade}})</p>
+            <p id="mygrade">({{my_grade}})</p>
             <span class="info"></span>
         </div>
         <button class="writing-bt"><a href="{% url 'create_report_page' book.id %}">독후감 작성</a></button>
@@ -118,6 +118,11 @@
                 method: 'POST',
                 url: "{% url 'rating' book.id %}",
                 data: {vote:vote},
+                success: function(response) {
+                    $("#book_grade").html(response.grade);
+                    $("#mygrade").html('(' + response.my_grade + ')');
+                    $("#book_count").html('(' + response.count + '명' + ')');
+                },
             })
         })
     </script>
