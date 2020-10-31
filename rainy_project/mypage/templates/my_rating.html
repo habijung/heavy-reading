@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="stylesheet" href="{% static 'mypage/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <title>진중한 독서</title>
 
     <!-- Bootstrap core CSS -->
@@ -49,6 +50,8 @@
             </ul>
         </nav>
     </header>
+
+    <h2>평점</h2>
 
     <div class="content">
         {% for rating in ratings %}

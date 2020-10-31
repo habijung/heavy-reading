@@ -24,7 +24,7 @@ a {
 #searching-form {
     margin: 0 auto;
     width: 400px;
-    background-color: #f0f0f0;
+    background-color: #dddddd;
     border-radius: 3rem;
 }
 
@@ -83,7 +83,7 @@ a {
 }
 
 #booklist:hover {
-    background-color: #F0F0F0;
+    background-color: #dddddd;
     border-radius: 0.3rem;
 }
 
