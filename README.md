@@ -38,8 +38,13 @@ Chrome | 86 (64-bit)
 # Installation Process
 ```bash
 $ git clone https://github.com/osamhack2020/WEB_HeavyReading_Rainy.git
+$ cd WEB_HeavyReading_Rainy
 $ python3 --version
-$ pip3 install django==2.2
+$ python3 -m pip install --upgrade pip
+$ pip3 install -r requirements.txt
+$ pip3 list
+$ cd rainy_project
+$ python3 manage.py runserver
 ```
 
 
