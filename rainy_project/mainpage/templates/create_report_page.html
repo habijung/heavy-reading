@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/creat.css' %}">
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
     <link rel="stylesheet" href="{% static 'css/bt.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <title>진중한 독서</title>
 </head>
 <body>
@@ -132,6 +133,19 @@
         </form>
     </div>
     {% endif %}
+
+    <footer>
+        <ul>
+            <li><a class="team-name" href="https://github.com/osamhack2020/WEB_HeavyReading_Rainy" target="_blank">&#128218 Rainy</a></li>
+            <li>
+                <a class="team-member" href="https://github.com/Ohjaeyeop" target="_blank">오재엽 (Jaeyeop Oh)</a>
+                <span>|</span>
+                <a class="team-member" href="https://github.com/HabiJung" target="_blank">정하빈 (Habin Jung)</a>
+            </li>
+            <li class="copyright">Copyright (c) 2020 Rainy</li>
+        </ul>
+        <a href="https://osam.kr" target="_blank"><img id="osam-img" src="{% static 'img/osam.png' %}"></a>
+    </footer>
 
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/rating.js' %}"></script>

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="stylesheet" href="{% static 'mypage/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <title>진중한 독서</title>
 
     <!-- Bootstrap core CSS -->
@@ -68,6 +69,19 @@
             <p class="my-box-count">&#x1F516 {{user_memos.count}}</p>
         </div>
     </div>
+
+    <footer>
+        <ul>
+            <li><a class="team-name" href="https://github.com/osamhack2020/WEB_HeavyReading_Rainy" target="_blank">&#128218 Rainy</a></li>
+            <li>
+                <a class="team-member" href="https://github.com/Ohjaeyeop" target="_blank">오재엽 (Jaeyeop Oh)</a>
+                <span>|</span>
+                <a class="team-member" href="https://github.com/HabiJung" target="_blank">정하빈 (Habin Jung)</a>
+            </li>
+            <li class="copyright">Copyright (c) 2020 Rainy</li>
+        </ul>
+        <a href="https://osam.kr" target="_blank"><img id="osam-img" src="{% static 'img/osam.png' %}"></a>
+    </footer>
 </body>
 
 </html>
