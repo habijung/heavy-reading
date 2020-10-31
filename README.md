@@ -55,29 +55,29 @@ $ python3 manage.py runserver
 # Getting Started
 ## Home
 - 서비스 시작 페이지  
-<img src="./project_docs/img/0_home.png" width="500" height="300" />
+<img src="./project_docs/img/0_home.png" width="600" height="300" />  
 
 ## Sign-Up & Sign-In
 - 회원가입 및 로그인  
-<img src="./project_docs/img/1_signup.png" width="600" height="300" />
+<img src="./project_docs/img/1_signup.png" width="600" height="300" />  
 
 ## Book Detail
 - 책 정보 및 독후감 & 메모 작성  
-<img src="./project_docs/img/3_book_detail.png" width="600" height="300" />
-<img src="./project_docs/img/4_create_report.png" width="600" height="300" />
-<img src="./project_docs/img/6_create_memo.png" width="600" height="300" />
+<img src="./project_docs/img/3_book_detail.png" width="600" height="300" />  
+<img src="./project_docs/img/4_create_report.png" width="600" height="300" />  
+<img src="./project_docs/img/6_create_memo.png" width="600" height="300" />  
 
 ## My Page
 - 마이페이지에서 평점 / 독후감 / 메모 확인  
-<img src="./project_docs/img/7_mypage.png" width="600" height="300" />
-<img src="./project_docs/img/8_view_myrating_list.png" width="600" height="300" />
-<img src="./project_docs/img/9_view_myreport_list.png" width="600" height="300" />
-<img src="./project_docs/img/10_view_mymemo_list.png" width="600" height="300" />
+<img src="./project_docs/img/7_mypage.png" width="600" height="300" />  
+<img src="./project_docs/img/8_view_myrating_list.png" width="600" height="300" />  
+<img src="./project_docs/img/9_view_myreport_list.png" width="600" height="300" />  
+<img src="./project_docs/img/10_view_mymemo_list.png" width="600" height="300" />  
 
 
 <!-- 기술 스택 -->
 # Technique Used
-<img src="./project_docs/img/10_languages.png" />
+<img src="./project_docs/img/11_languages.png" />
 
 ## front-end
 - Html
