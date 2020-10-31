@@ -55,7 +55,7 @@ $ python3 manage.py runserver
 # Getting Started
 ## Home
 - 서비스 시작 페이지  
-<img src="./project_docs/img/0_home.png" width="500" height="300" />  
+<img src="./project_docs/img/0_home.png" width="600" height="300" />  
 
 ## Sign-Up & Sign-In
 - 회원가입 및 로그인  
