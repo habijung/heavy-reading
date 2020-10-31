@@ -41,16 +41,18 @@ $ git clone https://github.com/osamhack2020/WEB_HeavyReading_Rainy.git
 $ cd WEB_HeavyReading_Rainy
 $ python3 --version
 $ python3 -m pip install --upgrade pip
+$ sudo apt-get install python3-setuptools
 $ pip3 install -r requirements.txt
 $ pip3 list
 $ cd rainy_project
+$ sudo pkill -f runserver
 $ python3 manage.py runserver
 ```
 
 
 <!-- 프로젝트 사용법 -->
 # Getting Started
-**마크다운 문법을 이용하여 자유롭게 기재**
+- 기능별 사용법 기술
 
 
 <!-- 기술 스택 -->
