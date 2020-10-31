@@ -20,10 +20,9 @@ Rainy (Reading Assistance IN militarY) 팀은 독서를 좋아하는 구성원�
 
 
 <!-- 프로젝트 시연 동영상 -->
-<!--
 # Prototype Video
-[![Video](https://img.youtube.com/vi/S-thTTqefls/0.jpg)](https://youtu.be/S-thTTqefls)
--->
+[![Video](https://img.youtube.com/vi/UDZAzGPSY3U/0.jpg)](https://youtu.be/UDZAzGPSY3U)
+
 
 <!-- 컴퓨터 구성 / 필수 조건 안내 -->
 # Prerequisites
